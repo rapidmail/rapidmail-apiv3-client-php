@@ -1,0 +1,31 @@
+language: php
+
+php:
+  - '5.6'
+  - '7.0'
+  - '7.1'
+  - '7.2'
+  - '7.3'
+
+cache:
+  directories:
+    - "$HOME/.composer/cache"
+
+env:
+  global:
+    - COMPOSER_NO_INTERACTION=1
+  matrix:
+    - PREFER_LOWEST="--prefer-lowest"
+    - PREFER_LOWEST=""
+
+install:
+  - travis_retry composer update --no-scripts --no-suggest $PREFER_LOWEST
+
+script:
+  - composer validate --strict
+  - find src tests -name '*.php' | xargs -n 1 -P4 php -l
+  - vendor/bin/phpunit
+
+branches:
+  only:
+    - master

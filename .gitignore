@@ -1,1 +1,5 @@
 .idea/
+/vendor/*
+!/vendor/.gitkeep
+clover.xml
+rapidmail-apiv3-client-php.zip
