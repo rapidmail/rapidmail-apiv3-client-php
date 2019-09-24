@@ -8,7 +8,9 @@ use Rapidmail\ApiClient\Http\HttpClientFactory;
 use Rapidmail\ApiClient\Service\ServiceFactory;
 use Rapidmail\ApiClient\Util\PlatformRequirements;
 
-require_once __DIR__ . '/../vendor/autoload.php';
+if (is_file(__DIR__ . '/../vendor/autoload.php')) {
+    require_once __DIR__ . '/../vendor/autoload.php';
+}
 
 /**
  * rapidmail API v3 client
