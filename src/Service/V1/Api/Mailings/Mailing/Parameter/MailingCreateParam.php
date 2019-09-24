@@ -131,38 +131,34 @@ class MailingCreateParam extends GenericParameter
     public function setDestinations(array $destinations)
     {
 
-        $this->setAttributeRaw(
-            'destinations',
-            $this->parameterFactory->newGenericParameter(
-            // Suppress exception related warnings in old PHP versions https://bugs.php.net/bug.php?id=68686
-                @array_map(
-                    function ($destination) {
+        $parameter = [];
 
-                        if ($destination instanceof MailingCreateParamDestinationAttr) {
-                            return $destination;
-                        }
+        foreach ($destinations as $key => $destination) {
 
-                        if (is_numeric($destination)) {
+            if ($destination instanceof MailingCreateParamDestinationAttr) {
+                $parameter[$key] = $destination;
+                continue;
+            }
 
-                            // Assume a recipient list ID was provided
+            if (is_numeric($destination)) {
 
-                            return $this->parameterFactory->newMailingCreateParamDestinationAttr()->setId($destination);
+                // Assume a recipient list ID was provided
+                $parameter[$key] = $this->parameterFactory->newMailingCreateParamDestinationAttr()->setId($destination);
+                continue;
+            }
 
-                        }
+            if (is_array($destination)) {
+                $parameter[$key] = $this->parameterFactory->newMailingCreateParamDestinationAttr($destination);
+                continue;
+            }
 
-                        if (is_array($destination)) {
-                            return $this->parameterFactory->newMailingCreateParamDestinationAttr($destination);
-                        }
+            throw new InvalidArgumentException(
+                'Destination must be either an array or instance of MailingCreateParamDestinationAttr'
+            );
 
-                        throw new InvalidArgumentException(
-                            'Destination must be either an array or instance of MailingCreateParamDestinationAttr'
-                        );
+        }
 
-                    },
-                    $destinations
-                )
-            )
-        );
+        $this->setAttributeRaw('destinations', $this->parameterFactory->newGenericParameter($parameter));
 
         return $this;
 
