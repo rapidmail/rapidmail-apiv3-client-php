@@ -15,17 +15,13 @@ ini_set('display_startup_errors', 1);
 
 // Authentication credentials can be found within the API section of your rapidmail account
 
-$config = [
-    'auth' => [
-        'api_username',
-        'api_password'
-    ]
-];
+$username = 'api_username_hash';
+$password = 'api_password_hash';
 
 // Create a new client
 
 try {
-    $client = new Client($config);
+    $client = new Client($username, $password);
 } catch (IncompatiblePlatformException $e) {
 
     die(

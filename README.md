@@ -27,13 +27,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 use Rapidmail\ApiClient\Client;
 
-$client = new Client([
-    'auth' => [
-            'api_username_hash', 
-            'api_password_hash'
-        ]
-    ]
-);
+$client = new Client('api_username_hash', 'api_password_hash');
 ```
 
 After that you can access various services encapsulated within the client:

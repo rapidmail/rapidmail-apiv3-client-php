@@ -31,11 +31,29 @@ class Client
     /**
      * Constructor
      *
-     * @param array $config
+     * @param string $username
+     * @param string $password
      * @throws IncompatiblePlatformException
      */
-    public function __construct(array $config = [])
+    public function __construct(...$args)
     {
+
+        // Assume username + password by default
+
+        $config = [
+            'auth' => [
+                isset($args[0]) && is_string($args[0]) ? $args[0] : '',
+                isset($args[1]) && is_string($args[1]) ? $args[1] : ''
+            ]
+        ];
+
+        // Assume a configuration array was provided
+
+        if (isset($args[0]) && is_array($args[0])) {
+            $config = $args[0];
+        }
+
+        // Assume
 
         (new PlatformRequirements())->assertPlatformRequirements();
 
