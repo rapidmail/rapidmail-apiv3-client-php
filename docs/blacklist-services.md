@@ -14,24 +14,26 @@ $service = $client->blacklist();
 ```
 
 ###  Available methods
+
+#### Get info about a single blacklist entry
 ```php
-// Get info about a single blacklist entry
-
 $response = $service->get(/* BLACKLIST ID */);
-
-// Delete blacklist entry by ID
-
+```
+#### Delete blacklist entry by ID
+```php
 $response = $service->delete(/* BLACKLIST ID */);
-
-// Get list of blacklist entries
-
+```
+#### Get list of blacklist entries
+See [GET call documentation](https://developer.rapidmail.wiki/documentation.html?urls.primaryName=Blacklist#/Blacklist/get_blacklist) on how to setup OPTIONAL FILTER
+```php
 $collection = $service->query(/* OPTIONAL FILTER */);
-
-// Create a new blacklist entry
-
+```
+#### Create a new blacklist entry
+See [POST call documentation](https://developer.rapidmail.wiki/documentation.html?urls.primaryName=Blacklist#/Blacklist/post_blacklist) on how to setup PAYLOAD
+```php
 $response = $service->create(/* PAYLOAD */);
-
-// Import blacklist from CSV file
-
+```
+#### Import blacklist from CSV file
+```php
 $response = $service->import(/* FILE */);
 ```

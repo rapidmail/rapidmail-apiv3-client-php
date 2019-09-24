@@ -16,28 +16,32 @@ $service = $client->recipients();
 ```
 
 ###  Available methods
+#### Load a single recipient by ID
 ```php
-// Load a single recipient by ID
-
 $response = $service->get(/* RECIPIENT ID */);
-
-// Delete recipient by ID
-
+```
+#### Delete recipient by ID
+See [DELETE call documentation](https://developer.rapidmail.wiki/documentation.html?urls.primaryName=Recipients#/Recipients/delete_recipients__recipient_id_) on how to setup OPTIONAL MODIFIER
+```php
 $response = $service->delete(/* RECIPIENT ID */, /* OPTIONAL MODIFIER */);
-
-// List all recipients
-
-$collection = $service->query(/* FILTER */);
-
-// Create a new recipient
-
+```
+#### List all recipients
+See [GET call documentation](https://developer.rapidmail.wiki/documentation.html?urls.primaryName=Recipients#/Recipients/get_recipients) on how to setup REQUIRED FILTER
+```php
+$collection = $service->query(/* REQUIRED FILTER */);
+```
+#### Create a new recipient
+See [POST call documentation](https://developer.rapidmail.wiki/documentation.html?urls.primaryName=Recipients#/Recipients/post_recipients) on how to setup PAYLOAD and OPTIONAL MODIFIER
+```php
 $response = $service->create(/* PAYLOAD */, /* OPTIONAL MODIFIER */);
-
-// Update a specific recipient allowing partial updates
-
+```
+#### Update a specific recipient allowing partial updates
+See [PATCH call documentation](https://developer.rapidmail.wiki/documentation.html?urls.primaryName=Recipients#/Recipients/patch_recipients__recipient_id_) on how to setup PAYLOAD
+```php
 $response = $service->update(/* RECIPIENT ID */, /* PAYLOAD */);
-
-// Import a list of recipients into the recipientlist from a CSV file
-
+```
+#### Import a list of recipients into a recipientlist from a CSV file
+See [POST call documentation](https://developer.rapidmail.wiki/documentation.html?urls.primaryName=Recipients#/RecipientImport/post_recipients_import) on how to setup PAYLOAD and OPTIONAL MODIFIER
+```php
 $response = $service->import(/* PAYLOAD */, /* OPTIONAL MODIFIER */);
 ```

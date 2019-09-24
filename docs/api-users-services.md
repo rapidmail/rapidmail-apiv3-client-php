@@ -10,24 +10,26 @@ $service = $client->apiUsers();
 ```
 
 ###  Available methods
+
+#### Get details about an API user
 ```php
-// Get details about an API user
-
 $response = $service->get(/* API USER ID */);
-
-// Delete a single API user
-
+```
+#### Delete a single API user
+```php
 $collection = $service->delete(/* API USER ID */);
- 
-// Get a list of API users
-
+```
+#### Get a list of API users
+```php
 $collection = $service->query();
-
-// Create a new API user
-
+```
+#### Create a new API user
+See [POST call documentation](https://developer.rapidmail.wiki/documentation.html#/ApiUsers/post_apiusers) on how to setup PAYLOAD 
+```php
 $response = $service->create(/* PAYLOAD */);
-
-// Partially update an API user
-
+```
+#### Partially update an API user
+See [PATCH call documentation](https://developer.rapidmail.wiki/documentation.html#/ApiUsers/patch_apiusers__apiuser_id_) on how to setup PAYLOAD 
+```php
 $response = $service->update(/* API USER ID */, /* PAYLOAD */);
 ```

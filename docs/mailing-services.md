@@ -13,30 +13,32 @@ The API service to manage mailings.
 $service = $client->mailings();
 ```
 ###  Available methods
+#### Get detailed info about single mailing 
 ```php
-// Get detailed info about single mailing
-
-$response = $service->get(/* ID */);
-
-// Delete a single mailing
-
-$response = $service->delete(/* ID */);
-
-// List available mailings with optional filter crtierial applied
-
+$response = $service->get(/* MAILING ID */);
+```
+#### Delete a single mailing
+```php
+$response = $service->delete(/* MAILING ID */);
+```
+#### List available mailings with optional filter criteria applied
+See [GET call documentation](https://developer.rapidmail.wiki/documentation.html?urls.primaryName=Mailings#/Mailings/get_mailings) on how to setup OPTIONAL FILTER
+```php
 $collection = $service->query(/* OPTIONAL FILTER */);
-
-// Create a new mailing using zip file content
- 
+```
+#### Create a new mailing using zip file content
+See [POST call documentation](https://developer.rapidmail.wiki/documentation.html?urls.primaryName=Mailings#/Mailings/post_mailings) on how to setup PAYLOAD
+```php
 $response = $service->create(/* PAYLOAD */);
+```
+#### Pause a mailing
+```php
+$response = $service->pause(/* MAILING ID */);
+```
 
-// Pause a mailing
-
-$response = $service->pause(/* ID */);
-
-// Cancel a mailing
-
-$response = $service->cancel(/* ID */);
+#### Cancel a mailing
+```php
+$response = $service->cancel(/* MAILING ID */);
 ```
 
 ## MailingRecipients Service
@@ -47,14 +49,13 @@ API service to get recipient details for specific mailing
 $service = $client->mailingRecipients();
 ```
 
-###  Available methods
+### Available methods
+#### Get recipients for mailing
 ```php
-// Get recipients for mailing
-
 $collection = $service->query(/* MAILING ID */);
-
-// Get details about specific mailing recipient
-
+```
+#### Get details about specific mailing recipient
+```php
 $response = $service->get(/* MAILING ID */, /* MAILING RECIPIENT ID */);
 ```
 
@@ -67,9 +68,8 @@ $service = $client->mailingStats();
 ```
 
 ###  Available methods
+#### Get stats for specific mailing
 ```php
-// Get stats for specific mailing
-
 $response = $service->get(/* MAILING ID */);
 ```
 
@@ -82,8 +82,8 @@ $service = $client->mailingStatsAnonymize();
 ```
 
 ###  Available methods
-```php
-// Anonymize mailing stats for a specific sent mailing
 
+#### Anonymize mailing stats for a specific sent mailing
+```php
 $response = $service->anonymize(/* MAILING ID */);
 ```

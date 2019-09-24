@@ -10,8 +10,7 @@ $service = $client->jobs();
 ```
 
 ###  Available methods
+#### Get details about a specific job
 ```php
-// Get details about a specific job
-
 $response = $service->get(/* JOB ID */);
 ```
