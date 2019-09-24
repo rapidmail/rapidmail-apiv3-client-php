@@ -4,6 +4,10 @@
 
 The API service to manage mailings.
 
+### Examples
+
+* [Fetch mailings](/examples/example-02-fetch-mailings.php)
+
 ### Retrieve a service instance
 ```php
 $service = $client->mailings();

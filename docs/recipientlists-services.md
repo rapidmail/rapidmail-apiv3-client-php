@@ -4,6 +4,7 @@
 
 API Service to manage recipientlists
 
+### Retrieve a service instance
 ```php
 $service = $client->recipientlists();
 ```

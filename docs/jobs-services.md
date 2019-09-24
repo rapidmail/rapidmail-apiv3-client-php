@@ -4,6 +4,7 @@
 
 API service to poll information about jobs from the jobexecutor queue
 
+### Retrieve a service instance
 ```php
 $service = $client->jobs();
 ```

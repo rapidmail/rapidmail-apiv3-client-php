@@ -4,6 +4,13 @@
 
 API Service to manage recipients
 
+### Examples
+
+* [Fetch recipients](/examples/example-03-fetch-recipients.php)
+* [Create recipient](/examples/example-04-create-recipient.php)
+* [Import recipient data](/examples/example-05-import-recipients.php)
+
+### Retrieve a service instance
 ```php
 $service = $client->recipients();
 ```

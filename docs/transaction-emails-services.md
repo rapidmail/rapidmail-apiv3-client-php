@@ -4,6 +4,7 @@
 
 API service to fetch transactional emails
 
+### Retrieve a service instance
 ```php
 $service = $client->transactionEmails();
 ```

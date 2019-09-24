@@ -4,6 +4,11 @@
 
 API service to manage blacklist entries
 
+### Examples
+
+* [Import blacklist data](/examples/example-06-import-blacklist.php)
+
+### Retrieve a service instance
 ```php
 $service = $client->blacklist();
 ```

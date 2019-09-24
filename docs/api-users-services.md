@@ -4,6 +4,7 @@
 
 API Service to manage API users
 
+### Retrieve a service instance
 ```php
 $service = $client->apiUsers();
 ```
