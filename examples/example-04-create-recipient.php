@@ -11,7 +11,7 @@ $recipientService = $client->recipients();
 // Set up a recipient data to be inserted. "email" and "recipientlist_id" are both required
 
 $payload = [
-    'email' => 'my-recipient-' . time() . '@example.net', // Enter your own recipient address
+    'email' => 'info@example.net', // Enter your own recipient address
     'recipientlist_id' => 9876543210 // Enter your own recipientlist id
 ];
 
