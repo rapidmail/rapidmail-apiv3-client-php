@@ -18,6 +18,8 @@ try {
 
     $jobInfo = $blacklistService->import(__DIR__ . '/example-06-import-blacklist-data.csv');
 
+    $retries = 12;
+
     do {
 
         echo "Sleeping 5 seconds before asking job (id {$jobInfo['id']}) having status '{$jobInfo['status']}' to complete" . PHP_EOL;
@@ -30,7 +32,7 @@ try {
             break;
         }
 
-    } while (true);
+    } while (--$retries > 0);
 
     echo "Import job completed having status '{$jobInfo['status']}'" . PHP_EOL;
 
