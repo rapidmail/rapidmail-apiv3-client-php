@@ -36,7 +36,7 @@ try {
 
 } catch (ApiClientException $e) {
 
-    // Implement proper error handling
+    // @TODO: Implement your own error handling
 
     if ($e->getCode() == 401) {
         die('Unauthorized access. Check if username and password are correct');
