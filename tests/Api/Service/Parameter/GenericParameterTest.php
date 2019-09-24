@@ -3,6 +3,7 @@
 namespace Rapidmail\ApiClientTests\Api\Service\Parameter;
 
 use PHPUnit\Framework\TestCase;
+use Rapidmail\ApiClient\Exception\InvalidArgumentException;
 use Rapidmail\ApiClient\Service\Parameter\GenericParameter;
 use Rapidmail\ApiClientTests\Mock\GenericParameterMock;
 
@@ -94,11 +95,9 @@ class GenericParameterTest extends TestCase
 
     }
 
-    /**
-     * @expectedException \Rapidmail\ApiClient\Exception\InvalidArgumentException
-     */
     public function testStringifyDateTimeInvalidArgumentException()
     {
+        $this->expectException(InvalidArgumentException::class);
         (new GenericParameterMock())->stringifyDateTime(false);
     }
 
