@@ -96,6 +96,7 @@ $recipientsService = $client->recipients();
 
 var_dump(
     $recipientsService->create(
+        // Dataset: Represents the recipient dataset you're creating
         [
             'recipientlist_id' => 123456789, // Required
             'email' => 'john@example.net', // Required
@@ -103,8 +104,9 @@ var_dump(
             'lastname' => 'Doe',
             'gender' => 'male'
         ],
+        // Flags: Configures system behavior, like sending activationmails
         [
-            'send_activationmail' => 'yes' // Flag to send an activation mail to the recipient
+            'send_activationmail' => 'yes'
         ]
     )
 );

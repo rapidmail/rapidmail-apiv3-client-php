@@ -35,6 +35,8 @@ See [POST call documentation](https://developer.rapidmail.wiki/documentation.htm
 ```php
 $response = $service->create(/* PAYLOAD */, /* OPTIONAL MODIFIER */);
 ```
+* PAYLOAD: Represents the dataset you're creating
+* OPTIONAL MODIFIER: Configures system behavior, like sending activationmails
 #### Update a specific recipient allowing partial updates
 See [PATCH call documentation](https://developer.rapidmail.wiki/documentation.html?urls.primaryName=Recipients#/Recipients/patch_recipients__recipient_id_) on how to setup PAYLOAD
 ```php
@@ -45,3 +47,5 @@ See [POST call documentation](https://developer.rapidmail.wiki/documentation.htm
 ```php
 $response = $service->import(/* PAYLOAD */, /* OPTIONAL MODIFIER */);
 ```
+* PAYLOAD: Expects recipientlist_id and a file to be set
+* OPTIONAL MODIFIER: Configures system behavior, like setting import enclosure and delimiter
