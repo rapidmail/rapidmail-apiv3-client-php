@@ -136,3 +136,7 @@ Also refer to the [API documentation](https://developer.rapidmail.wiki/documenta
 ## License
 
 rapidmail APIv3 client is licensed under the terms of the [BSD 2-clause](LICENSE) license.
+
+## Support
+
+Contact: [www.rapidmail.de](https://www.rapidmail.de) - support@rapidmail.de - +49 761 - 216 08 720
