@@ -16,7 +16,9 @@ composer require rapidmail/rapidmail-apiv3-client-php
 
 ### From Zip File 
 
-Download [rapidmail-apiv3-client-php.zip](/rapidmail/rapidmail-apiv3-client-php/releases/latest/download/rapidmail-apiv3-client-php.zip) from releases section and extract it into an appropriate subdirectory within your project.  
+Download [rapidmail-apiv3-client-php.zip](/rapidmail/rapidmail-apiv3-client-php/releases/latest/download/rapidmail-apiv3-client-php.zip) from releases section and extract it into an appropriate subdirectory within your project.
+
+Be aware that this method is most likely to cause problems when used in conjunction with [Composer](https://getcomposer.org) or an existing installation of [Guzzle](http://docs.guzzlephp.org), so it's strongly recommended to choose the preferred installation method above.
 
 ## Getting started
 
