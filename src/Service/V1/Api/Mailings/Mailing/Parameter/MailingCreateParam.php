@@ -35,7 +35,8 @@ class MailingCreateParam extends GenericParameter
             'from_email',
             'subject',
             'file',
-            'destinations'
+            'destinations',
+            'send_at'
         ];
     }
 
@@ -162,6 +163,20 @@ class MailingCreateParam extends GenericParameter
 
         return $this;
 
+    }
+
+    /**
+     * Sets the mailings send at date and time
+     *
+     * @param string|\DateTimeInterface $dateTime
+     *
+     * @return static
+     */
+    public function setSendAt($dateTime)
+    {
+        $this->setAttributeRaw('send_at', $this->stringifyDateTime($dateTime));
+
+        return $this;
     }
 
 }
