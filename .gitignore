@@ -1,5 +1,4 @@
 .idea/
-/vendor/*
-!/vendor/.gitkeep
+vendor/
 clover.xml
 rapidmail-apiv3-client-php.zip
