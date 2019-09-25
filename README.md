@@ -3,7 +3,7 @@
 API client written in PHP providing access to the current version of the [rapidmail](https://www.rapidmail.de) API.
 
 [![Build Status](https://travis-ci.org/rapidmail/rapidmail-apiv3-client-php.svg?branch=master)](https://travis-ci.org/rapidmail/rapidmail-apiv3-client-php)
-
+[![Latest Stable Version](https://poser.pugx.org/rapidmail/rapidmail-apiv3-client-php/v/stable)](https://packagist.org/packages/rapidmail/rapidmail-apiv3-client-php)
 ## Installation
 
 ### With Composer
