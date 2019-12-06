@@ -18,7 +18,7 @@ $payload = [
 // Optional modifier that changes recipient creation behavior
 
 $modifier = [
-    'send_activationmail' => 'no' // Set to 'yes' if you want to sent an activation email to your recipient
+    'send_activationmail' => 'no' // Set to 'yes' if you want to sent an activation email to your recipient, Warning: activation emails are _never_ sent for demo accounts.
 ];
 
 // Create a recipient
