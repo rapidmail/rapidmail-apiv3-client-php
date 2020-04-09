@@ -97,7 +97,7 @@ class MailingQueryParam extends GenericParameter
      */
     public function setUpdatedSince($dateTime)
     {
-        $this->setAttributeRaw('created_since', $this->stringifyDateTime($dateTime));
+        $this->setAttributeRaw('updated_since', $this->stringifyDateTime($dateTime));
 
         return $this;
     }
