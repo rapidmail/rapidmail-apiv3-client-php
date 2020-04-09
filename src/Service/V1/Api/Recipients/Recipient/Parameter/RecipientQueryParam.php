@@ -151,10 +151,6 @@ class RecipientQueryParam extends GenericParameter
     public function setStatus($status)
     {
 
-        if (is_array($status)) {
-            $status = implode(',', $status);
-        }
-
         $this->setAttributeRaw('status', $status);
 
         return $this;
