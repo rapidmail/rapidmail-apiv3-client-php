@@ -22,4 +22,5 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Fixed
 
-- Nothing.
+- [#4](https://github.com/rapidmail/rapidmail-apiv3-client-php/pull/4) fixes a bug where setting the "updated_since"
+filter when listing mailings would instead apply a "created_since" filter (Issue #2)
