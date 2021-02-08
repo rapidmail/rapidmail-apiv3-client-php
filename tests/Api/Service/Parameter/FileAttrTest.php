@@ -18,11 +18,11 @@ class FileAttrTest extends TestCase
     /**
      * @dataProvider base64provider
      * @param string $content
+     * @doesNotPerformAssertions
      */
     public function testValidateBase64Content($content) {
         $attr = new FileAttr();
         $attr->setContent($content);
-        $this->expectNotToPerformAssertions();
     }
 
     public function base64provider()
