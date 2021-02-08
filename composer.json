@@ -13,7 +13,7 @@
         "php" : "^5.6 || ^7.0 || ^8.0",
         "ext-json": "*",
         "ext-fileinfo": "*",
-        "guzzlehttp/guzzle": "^6.3",
+        "guzzlehttp/guzzle": "^6.3 || ^7.0",
         "psr/http-message": "^1.0"
     },
     "require-dev": {
