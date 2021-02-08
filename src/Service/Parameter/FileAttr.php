@@ -15,7 +15,7 @@ class FileAttr extends GenericParameter
     /**
      * @var string
      */
-    const BASE64_VALIDATION_PATTERN = '~^([A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{2}==)?$~';
+    const BASE64_VALIDATION_PATTERN = '~^[a-zA-Z0-9\/\r\n+]*={0,2}$~';
 
     /**
      * @inheritDoc
@@ -41,7 +41,7 @@ class FileAttr extends GenericParameter
             throw new InvalidArgumentException('No file content provided');
         }
 
-        if (preg_match(static::BASE64_VALIDATION_PATTERN, $content) == 0) {
+        if ((strlen($content) % 4 !== 0) || preg_match(static::BASE64_VALIDATION_PATTERN, $content) == 0) {
             throw new InvalidArgumentException('File content must be base64 encoded');
         }
 
