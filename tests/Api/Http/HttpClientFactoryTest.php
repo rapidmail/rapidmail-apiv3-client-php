@@ -3,10 +3,10 @@
 namespace Rapidmail\ApiClientTests\Api\Http;
 
 use GuzzleHttp\Client;
-use PHPUnit\Framework\TestCase;
 use Rapidmail\ApiClient\Http\HttpClientFacade;
 use Rapidmail\ApiClient\Http\HttpClientFactory;
 use Rapidmail\ApiClient\Http\HttpClientInterface;
+use Yoast\PHPUnitPolyfills\TestCases\TestCase;
 
 class HttpClientFactoryTest extends TestCase
 {

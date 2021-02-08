@@ -2,10 +2,10 @@
 
 namespace Rapidmail\ApiClientTests\Api\Service\Parameter;
 
-use PHPUnit\Framework\TestCase;
 use Rapidmail\ApiClient\Exception\InvalidArgumentException;
 use Rapidmail\ApiClient\Service\Parameter\GenericParameter;
 use Rapidmail\ApiClientTests\Mock\GenericParameterMock;
+use Yoast\PHPUnitPolyfills\TestCases\TestCase;
 
 class GenericParameterTest extends TestCase
 {

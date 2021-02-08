@@ -2,17 +2,14 @@
 
 namespace Rapidmail\ApiClientTests\Api\Service\Response;
 
-use PHPUnit\Framework\TestCase;
 use Rapidmail\ApiClient\Exception\NotImplementedException;
 use Rapidmail\ApiClient\Service\Response\HalResponse;
 use Rapidmail\ApiClientTests\Mock\HttpClientMock;
 use Rapidmail\ApiClientTests\Mock\ResponseFactoryMock;
-use Yoast\PHPUnitPolyfills\Polyfills\ExpectException;
+use Yoast\PHPUnitPolyfills\TestCases\TestCase;
 
 class HalResponseTest extends TestCase
 {
-    use ExpectException;
-
     protected function newHalResponse($data = [], HalResponse $expectedNextResponse = null)
     {
 
