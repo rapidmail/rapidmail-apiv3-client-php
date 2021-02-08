@@ -34,7 +34,7 @@ class HttpClientFactoryTest extends TestCase
 
         $this->assertEquals('https://www.example.net/version/', (string)$internalClient->getConfig('base_uri'));
         $this->assertEquals('application/json', $headers['Accept']);
-        $this->assertRegExp('~rapidmail-apiv3-client-php/\d+\.\d+\.\d+ \([^\)]*\)~', $headers['User-Agent']);
+        $this->assertMatchesRegularExpression('~rapidmail-apiv3-client-php/\d+\.\d+\.\d+ \([^\)]*\)~', $headers['User-Agent']);
 
     }
 

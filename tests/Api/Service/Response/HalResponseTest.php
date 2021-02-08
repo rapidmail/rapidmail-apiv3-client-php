@@ -126,7 +126,7 @@ class HalResponseTest extends TestCase
     public function testOffsetSetNotImplemented()
     {
         $this->expectException(NotImplementedException::class);
-        $this->expectExceptionMessageRegExp('/Write access is not implemented/');
+        $this->expectExceptionMessageMatches('/Write access is not implemented/');
         $response = $this->newHalResponse();
         $response->offsetSet('any', 'test');
     }
@@ -134,7 +134,7 @@ class HalResponseTest extends TestCase
     public function testOffsetUnsetNotImplemented()
     {
         $this->expectException(NotImplementedException::class);
-        $this->expectExceptionMessageRegExp('/Write access is not implemented/');
+        $this->expectExceptionMessageMatches('/Write access is not implemented/');
         $response = $this->newHalResponse();
         $response->offsetUnset('any');
     }
