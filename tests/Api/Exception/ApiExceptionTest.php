@@ -5,8 +5,8 @@ namespace Rapidmail\ApiClientTests\Api\Exception;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
-use PHPUnit\Framework\TestCase;
 use Rapidmail\ApiClient\Exception\ApiException;
+use Yoast\PHPUnitPolyfills\TestCases\TestCase;
 
 class ApiExceptionTest extends TestCase
 {

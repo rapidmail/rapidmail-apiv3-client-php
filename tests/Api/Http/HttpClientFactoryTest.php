@@ -3,10 +3,10 @@
 namespace Rapidmail\ApiClientTests\Api\Http;
 
 use GuzzleHttp\Client;
-use PHPUnit\Framework\TestCase;
 use Rapidmail\ApiClient\Http\HttpClientFacade;
 use Rapidmail\ApiClient\Http\HttpClientFactory;
 use Rapidmail\ApiClient\Http\HttpClientInterface;
+use Yoast\PHPUnitPolyfills\TestCases\TestCase;
 
 class HttpClientFactoryTest extends TestCase
 {
@@ -34,7 +34,7 @@ class HttpClientFactoryTest extends TestCase
 
         $this->assertEquals('https://www.example.net/version/', (string)$internalClient->getConfig('base_uri'));
         $this->assertEquals('application/json', $headers['Accept']);
-        $this->assertRegExp('~rapidmail-apiv3-client-php/\d+\.\d+\.\d+ \([^\)]*\)~', $headers['User-Agent']);
+        $this->assertMatchesRegularExpression('~rapidmail-apiv3-client-php/\d+\.\d+\.\d+ \([^\)]*\)~', $headers['User-Agent']);
 
     }
 

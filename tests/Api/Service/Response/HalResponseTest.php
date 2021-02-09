@@ -2,15 +2,14 @@
 
 namespace Rapidmail\ApiClientTests\Api\Service\Response;
 
-use PHPUnit\Framework\TestCase;
 use Rapidmail\ApiClient\Exception\NotImplementedException;
 use Rapidmail\ApiClient\Service\Response\HalResponse;
 use Rapidmail\ApiClientTests\Mock\HttpClientMock;
 use Rapidmail\ApiClientTests\Mock\ResponseFactoryMock;
+use Yoast\PHPUnitPolyfills\TestCases\TestCase;
 
 class HalResponseTest extends TestCase
 {
-
     protected function newHalResponse($data = [], HalResponse $expectedNextResponse = null)
     {
 
@@ -126,7 +125,7 @@ class HalResponseTest extends TestCase
     public function testOffsetSetNotImplemented()
     {
         $this->expectException(NotImplementedException::class);
-        $this->expectExceptionMessageRegExp('/Write access is not implemented/');
+        $this->expectExceptionMessageMatches('/Write access is not implemented/');
         $response = $this->newHalResponse();
         $response->offsetSet('any', 'test');
     }
@@ -134,7 +133,7 @@ class HalResponseTest extends TestCase
     public function testOffsetUnsetNotImplemented()
     {
         $this->expectException(NotImplementedException::class);
-        $this->expectExceptionMessageRegExp('/Write access is not implemented/');
+        $this->expectExceptionMessageMatches('/Write access is not implemented/');
         $response = $this->newHalResponse();
         $response->offsetUnset('any');
     }

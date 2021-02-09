@@ -2,9 +2,9 @@
 
 namespace Rapidmail\ApiClientTests\Api;
 
-use PHPUnit\Framework\TestCase;
 use Rapidmail\ApiClientTests\Mock\HttpClientMock;
 use Rapidmail\ApiClientTests\Mock\ResponseFactoryMock;
+use Yoast\PHPUnitPolyfills\TestCases\TestCase;
 
 class ApiServiceTestCase extends TestCase
 {
@@ -47,7 +47,7 @@ class ApiServiceTestCase extends TestCase
     /**
      * @inheritDoc
      */
-    protected function tearDown()
+    protected function tear_down()
     {
         $this->client = null;
         $this->responseFactory = null;
@@ -56,7 +56,7 @@ class ApiServiceTestCase extends TestCase
     /**
      * @inheritDoc
      */
-    protected function setUp()
+    protected function set_up()
     {
         $this->client = new HttpClientMock();
         $this->responseFactory = new ResponseFactoryMock();

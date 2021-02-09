@@ -2,3 +2,5 @@
 vendor/
 clover.xml
 rapidmail-apiv3-client-php.zip
+/.phpunit.result.cache
+/composer.lock
