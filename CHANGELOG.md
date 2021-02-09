@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
+## 1.1.0
+### Added
+- [#8](https://github.com/rapidmail/rapidmail-apiv3-client-php/pull/8) adds support for PHP 8.0.
+- [#8](https://github.com/rapidmail/rapidmail-apiv3-client-php/pull/8) adds support for Guzzle7 releases
+fixing issue #7
+  
+### Fixed
+- [#8](https://github.com/rapidmail/rapidmail-apiv3-client-php/pull/8) fixes base64 content validation
+failing with large base64 payloads.
+
 ## 1.0.1
 
 ### Added
