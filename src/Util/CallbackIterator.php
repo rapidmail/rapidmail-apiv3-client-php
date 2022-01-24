@@ -30,6 +30,7 @@ class CallbackIterator implements \Iterator
     /**
      * @inheritDoc
      */
+    #[ReturnTypeWillChange]
     public function current()
     {
 
@@ -42,6 +43,7 @@ class CallbackIterator implements \Iterator
     /**
      * @inheritDoc
      */
+    #[ReturnTypeWillChange]
     public function next()
     {
         $this->iterator->next();
@@ -50,6 +52,7 @@ class CallbackIterator implements \Iterator
     /**
      * @inheritDoc
      */
+    #[ReturnTypeWillChange]
     public function key()
     {
         return $this->iterator->key();
@@ -58,6 +61,7 @@ class CallbackIterator implements \Iterator
     /**
      * @inheritDoc
      */
+    #[ReturnTypeWillChange]
     public function valid()
     {
         return $this->iterator->valid();
@@ -66,6 +70,7 @@ class CallbackIterator implements \Iterator
     /**
      * @inheritDoc
      */
+    #[ReturnTypeWillChange]
     public function rewind()
     {
         $this->iterator->rewind();
