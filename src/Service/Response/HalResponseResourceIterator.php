@@ -47,7 +47,7 @@ class HalResponseResourceIterator implements ResponseInterface, \Iterator, \Coun
     /**
      * @inheritDoc
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function current()
     {
         return $this->currentResourceIterator->current();
@@ -56,7 +56,7 @@ class HalResponseResourceIterator implements ResponseInterface, \Iterator, \Coun
     /**
      * @inheritDoc
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function next()
     {
 
@@ -74,7 +74,7 @@ class HalResponseResourceIterator implements ResponseInterface, \Iterator, \Coun
     /**
      * @inheritDoc
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function key()
     {
         return $this->currentIndex;
@@ -83,17 +83,17 @@ class HalResponseResourceIterator implements ResponseInterface, \Iterator, \Coun
     /**
      * @inheritDoc
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function valid()
     {
-        #[ReturnTypeWillChange]
+        #[\ReturnTypeWillChange]
         return $this->currentResourceIterator !== null && $this->currentResourceIterator->valid();
     }
 
     /**
      * @inheritDoc
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function rewind()
     {
         $this->currentIndex = 0;
@@ -104,7 +104,7 @@ class HalResponseResourceIterator implements ResponseInterface, \Iterator, \Coun
     /**
      * @inheritDoc
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function count()
     {
         return $this->responseCollection->totalCount();

@@ -60,7 +60,7 @@ class HalResponse implements ResponseInterface, \ArrayAccess, \IteratorAggregate
     /**
      * @inheritDoc
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return isset($this->data[$offset]);
@@ -69,7 +69,7 @@ class HalResponse implements ResponseInterface, \ArrayAccess, \IteratorAggregate
     /**
      * @inheritDoc
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->data[$offset];
@@ -78,7 +78,7 @@ class HalResponse implements ResponseInterface, \ArrayAccess, \IteratorAggregate
     /**
      * @inheritDoc
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         throw new NotImplementedException('Write access is not implemented for ' . static::class);
@@ -87,7 +87,7 @@ class HalResponse implements ResponseInterface, \ArrayAccess, \IteratorAggregate
     /**
      * @inheritDoc
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         throw new NotImplementedException('Write access is not implemented for ' . static::class);
@@ -197,7 +197,7 @@ class HalResponse implements ResponseInterface, \ArrayAccess, \IteratorAggregate
     /**
      * @inheritDoc
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function getIterator()
     {
         return new \ArrayIterator($this->data);
