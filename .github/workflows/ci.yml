@@ -31,7 +31,7 @@ jobs:
 
     steps:
       - name: "Checkout"
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: "Phplint"
         uses: michaelw90/PHP-Lint@master
@@ -45,7 +45,7 @@ jobs:
           tools: composer:v1
 
       - name: "Cache dependencies"
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: |
             ~/.composer/cache
