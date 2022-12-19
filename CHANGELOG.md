@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file, in reverse 
 ## 1.1.1
 - Add #ReturnTypeWillChange attribute to prevent deprecation notices on PHP 8+
 - Run tests for PHP 8.1 and 8.2
+- Remove ZIP installation instructions 
 
 ## 1.1.0
 ### Added
