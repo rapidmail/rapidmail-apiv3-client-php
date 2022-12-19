@@ -86,7 +86,6 @@ class HalResponseResourceIterator implements ResponseInterface, \Iterator, \Coun
     #[\ReturnTypeWillChange]
     public function valid()
     {
-        #[\ReturnTypeWillChange]
         return $this->currentResourceIterator !== null && $this->currentResourceIterator->valid();
     }
 
