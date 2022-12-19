@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
+## 1.1.1
+- Add #ReturnTypeWillChange attribute to prevent deprecation notices on PHP 8+
+- Run tests for PHP 8.1 and 8.2
+
 ## 1.1.0
 ### Added
 - [#8](https://github.com/rapidmail/rapidmail-apiv3-client-php/pull/8) adds support for PHP 8.0.
