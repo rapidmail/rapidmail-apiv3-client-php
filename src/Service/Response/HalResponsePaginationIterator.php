@@ -31,6 +31,7 @@ class HalResponsePaginationIterator implements ResponseInterface, \Iterator, \Co
     /**
      * @inheritDoc
      */
+    #[\ReturnTypeWillChange]
     public function current()
     {
         return $this->current;
@@ -39,6 +40,7 @@ class HalResponsePaginationIterator implements ResponseInterface, \Iterator, \Co
     /**
      * @inheritDoc
      */
+    #[\ReturnTypeWillChange]
     public function next()
     {
         $this->current = $this->current->next();
@@ -47,6 +49,7 @@ class HalResponsePaginationIterator implements ResponseInterface, \Iterator, \Co
     /**
      * @inheritDoc
      */
+    #[\ReturnTypeWillChange]
     public function key()
     {
         return $this->current['page'];
@@ -55,6 +58,7 @@ class HalResponsePaginationIterator implements ResponseInterface, \Iterator, \Co
     /**
      * @inheritDoc
      */
+    #[\ReturnTypeWillChange]
     public function valid()
     {
         return $this->current !== null;
@@ -63,6 +67,7 @@ class HalResponsePaginationIterator implements ResponseInterface, \Iterator, \Co
     /**
      * @inheritDoc
      */
+    #[\ReturnTypeWillChange]
     public function rewind()
     {
         $this->current = $this->initial;
@@ -71,6 +76,7 @@ class HalResponsePaginationIterator implements ResponseInterface, \Iterator, \Co
     /**
      * @inheritDoc
      */
+    #[\ReturnTypeWillChange]
     public function count()
     {
         return $this->current['page_count'];
