@@ -35,7 +35,7 @@ class MailingRecipientsService extends AbstractService
         $response =
             $this->client->request(
                 'GET',
-                "{$this->getResourcePath()}/${mailingId}/stats/activity/${mailingRecipientId}"
+                "{$this->getResourcePath()}/{$mailingId}/stats/activity/{$mailingRecipientId}"
 
             );
 
@@ -56,7 +56,7 @@ class MailingRecipientsService extends AbstractService
         $response =
             $this->client->request(
                 'GET',
-                "{$this->getResourcePath()}/${mailingId}/stats/activity"
+                "{$this->getResourcePath()}/{$mailingId}/stats/activity"
 
             );
 

@@ -34,7 +34,7 @@ class MailingStatsAnonymizeService extends AbstractService
                 ->client
                 ->request(
                     'PUT',
-                    "{$this->getResourcePath()}/${mailingId}/stats/anonymize"
+                    "{$this->getResourcePath()}/{$mailingId}/stats/anonymize"
                 )
                 ->getStatusCode() == 200;
     }

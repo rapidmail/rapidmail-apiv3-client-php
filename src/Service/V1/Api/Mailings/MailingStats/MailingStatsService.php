@@ -32,7 +32,7 @@ class MailingStatsService extends AbstractService
 
         $response = $this->client->request(
             'GET',
-            "{$this->getResourcePath()}/${mailingId}/stats"
+            "{$this->getResourcePath()}/{$mailingId}/stats"
 
         );
 

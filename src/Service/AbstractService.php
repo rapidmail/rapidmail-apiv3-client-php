@@ -52,7 +52,7 @@ abstract class AbstractService implements ServiceInterface
      */
     protected function _get($id)
     {
-        return $this->client->request('GET', "{$this->getResourcePath()}/${id}");
+        return $this->client->request('GET', "{$this->getResourcePath()}/{$id}");
     }
 
     /**
@@ -78,7 +78,7 @@ abstract class AbstractService implements ServiceInterface
      */
     protected function _delete($id)
     {
-        return $this->client->request('DELETE', "{$this->getResourcePath()}/${id}");
+        return $this->client->request('DELETE', "{$this->getResourcePath()}/{$id}");
     }
 
 }

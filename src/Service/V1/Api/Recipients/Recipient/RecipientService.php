@@ -186,7 +186,7 @@ class RecipientService extends AbstractService
                 ->client
                 ->request(
                     'DELETE',
-                    "{$this->getResourcePath()}/${recipientId}",
+                    "{$this->getResourcePath()}/{$recipientId}",
                     [
                         RequestOptions::QUERY => $query->toArray()
                     ]

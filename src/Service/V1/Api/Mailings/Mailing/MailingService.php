@@ -135,7 +135,7 @@ class MailingService extends AbstractService
                 ->client
                 ->request(
                     'POST',
-                    "{$this->getResourcePath()}/${mailingId}/pause"
+                    "{$this->getResourcePath()}/{$mailingId}/pause"
                 )
                 ->getStatusCode() == 200;
     }
@@ -155,7 +155,7 @@ class MailingService extends AbstractService
                 ->client
                 ->request(
                     'POST',
-                    "{$this->getResourcePath()}/${mailingId}/cancel",
+                    "{$this->getResourcePath()}/{$mailingId}/cancel",
                     [
                         RequestOptions::JSON => [
                             "reason" => $reason
