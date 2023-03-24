@@ -122,6 +122,9 @@ More information about using the API client can be found in the following subsec
 * [Available services](/docs/available-services.md)
 * [Typed parameters](/docs/typed-parameters.md)
 
+## Known issues
+
+* Exceptions on 201 HTTP-Response-Code (used when a dataset was successfully created) are generated when using PHP Versions 7.4.5 and 8.1.2. If you're having issues with these versions, please try updating to a later version of PHP.
 
 Also refer to the [API documentation](https://developer.rapidmail.wiki/documentation.html) for a complete list of the available endpoints and their parameters.
 
