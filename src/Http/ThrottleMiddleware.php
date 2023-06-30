@@ -107,7 +107,7 @@ class ThrottleMiddleware
         if (count($this->timestampStack) >= $this->requestsPerInterval) {
 
             usleep(
-                abs(
+                (int) abs(
                     min($now - $this->timestampStack[0] - $this->interval, 0)
                 ) * 1000000
             );
