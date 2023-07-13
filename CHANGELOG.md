@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
+## 1.1.3
+- [#15](https://github.com/rapidmail/rapidmail-apiv3-client-php/pull/15) fix deprecation message in throttling
+middleware (Thanks to [mklewitz](https://github.com/mklewitz))
+
 ## 1.1.2
 - Add missing #ReturnTypeWillChange attributes
 - Fix variable substitution syntax to be compatible with PHP 8.2+
