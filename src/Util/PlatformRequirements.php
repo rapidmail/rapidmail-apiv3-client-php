@@ -33,7 +33,7 @@ class PlatformRequirements
         if (!(bool)version_compare(PHP_VERSION, $version, ">=")) {
 
             throw new IncompatiblePlatformException(
-                "Minimum version of PHP required is ${version}"
+                "Minimum version of PHP required is {$version}"
             );
 
         }
@@ -43,7 +43,7 @@ class PlatformRequirements
             if (!extension_loaded($extension)) {
 
                 throw new IncompatiblePlatformException(
-                    "Required PHP extension ${extension} is not loaded"
+                    "Required PHP extension {$extension} is not loaded"
                 );
 
             }

@@ -54,7 +54,7 @@ class ServiceFactory
         $globalConfig = $this->getGlobalConfig();
 
         if (!isset($globalConfig['services'][$service])) {
-            throw new NotImplementedException("API service '${service}' not found");
+            throw new NotImplementedException("API service '{$service}' not found");
         }
 
         if ($version === null) {
@@ -62,7 +62,7 @@ class ServiceFactory
         }
 
         if (!isset($globalConfig['services'][$service]['config'][$version])) {
-            throw new NotImplementedException("API service '${service}' for version '${version}' not found");
+            throw new NotImplementedException("API service '{$service}' for version '{$version}' not found");
         }
 
         $connectionSettings = array_replace_recursive(
@@ -75,7 +75,7 @@ class ServiceFactory
         $interfaces = class_implements($factoryClass);
 
         if ($interfaces === false || in_array(ServiceFactoryInterface::class, $interfaces) === false) {
-            throw new NotImplementedException("Service factory ${factoryClass} must implement ServiceFactoryInterface");
+            throw new NotImplementedException("Service factory {$factoryClass} must implement ServiceFactoryInterface");
         }
 
         /** @var ServiceFactoryInterface $factory */
