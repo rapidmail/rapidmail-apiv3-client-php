@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
+## 1.1.5
+- [#19](https://github.com/rapidmail/rapidmail-apiv3-client-php/pull/19) allow psr/http-message 2.0
+(Thganks to [saitho](https://github.com/saitho))
+
 ## 1.1.4
 - Fixed deprecation warnings caused by use of deprecated variable replacement notation. 
 
