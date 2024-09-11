@@ -37,6 +37,7 @@ class HttpClientFactory
                 ]
             ]
         );
+        unset($clientConfig['version']);
 
         return new HttpClientFacade(
             new Client($clientConfig)
