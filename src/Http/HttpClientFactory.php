@@ -26,10 +26,13 @@ class HttpClientFactory
             ), 'throttle'
         );
 
+        $version = $config['version'];
+        unset($config['version']);
+
         $clientConfig = array_replace_recursive(
             $config,
             [
-                'base_uri' => rtrim($config['base_uri'], '/') . '/' . $config['version'] . '/',
+                'base_uri' => rtrim($config['base_uri'], '/') . '/' . $version . '/',
                 'handler' => $stack,
                 RequestOptions::HEADERS => [
                     'Accept' => 'application/json',
