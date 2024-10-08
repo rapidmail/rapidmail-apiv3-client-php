@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
+## 1.1.7
+- Fix issue with API version number from config being passed to Guzzle client instance
+  See [#22](https://github.com/rapidmail/rapidmail-apiv3-client-php/pull/22) for details. Thanks to
+  [rkrx](https://github.com/rkrx) for the fix. 
+
 ## 1.1.6
 - Fix issue with API version number from config being passed to Guzzle client instance
 See [#20](https://github.com/rapidmail/rapidmail-apiv3-client-php/issues/20) for details. Thanks to 
