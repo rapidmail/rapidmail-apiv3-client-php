@@ -136,4 +136,4 @@ rapidmail APIv3 client is licensed under the terms of the [BSD 2-clause](LICENSE
 
 ## Support
 
-Contact: [www.rapidmail.de](https://www.rapidmail.de) - support@rapidmail.de - +49 761 - 216 08 720
+Contact: [www.rapidmail.de](https://www.rapidmail.de) - support@rapidmail.de - +49 761 - 55 77 55 77
