@@ -6,6 +6,7 @@ use Rapidmail\ApiClient\Exception\IncompatiblePlatformException;
 use Rapidmail\ApiClient\Exception\NotImplementedException;
 use Rapidmail\ApiClient\Http\HttpClientFactory;
 use Rapidmail\ApiClient\Service\ServiceFactory;
+use Rapidmail\ApiClient\Service\V1\Api\Mailings\MailingFolders\MailingFoldersService;
 use Rapidmail\ApiClient\Util\PlatformRequirements;
 
 if (is_file(__DIR__ . '/../vendor/autoload.php')) {
@@ -88,6 +89,19 @@ class Client
     {
         /** @noinspection PhpIncompatibleReturnTypeInspection */
         return $this->serviceFactory->createService('mailing_recipients', $version);
+    }
+
+    /**
+     * Creates a new mailing folders service
+     *
+     * @param string|null $version
+     * @return \Rapidmail\ApiClient\Service\V1\Api\Mailings\MailingFolders\MailingFoldersService
+     * @throws NotImplementedException
+     */
+    public function mailingFolders($version = null)
+    {
+        /** @noinspection PhpIncompatibleReturnTypeInspection */
+        return $this->serviceFactory->createService('mailing_folders', $version);
     }
 
     /**

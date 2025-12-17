@@ -15,6 +15,14 @@ return [
                 ]
             ]
         ],
+        'mailing_folders' => [
+            'current' => 'v1',
+            'config' => [
+                'v1' => [
+                    'factory_class' => \Rapidmail\ApiClient\Service\V1\Api\Mailings\MailingFolders\MailingFoldersServiceFactory::class
+                ]
+            ]
+        ],
         'mailing_recipients' => [
             'current' => 'v1',
             'config' => [
