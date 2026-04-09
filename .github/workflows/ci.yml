@@ -38,7 +38,7 @@ jobs:
         uses: actions/checkout@v6
 
       - name: "Phplint"
-        uses: michaelw90/PHP-Lint@master
+        uses: "dbfx/github-phplint/${{ matrix.php-version }}@v2"
 
       - name: "Install PHP"
         uses: shivammathur/setup-php@v2
