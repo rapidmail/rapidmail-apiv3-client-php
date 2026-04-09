@@ -37,8 +37,9 @@ jobs:
       - name: "Checkout"
         uses: actions/checkout@v6
 
-      - name: "Phplint"
-        uses: "dbfx/github-phplint/${{ matrix.php-version }}@v2"
+      - name: Run PHP Lint
+        run: |
+          find . -type f -name "*.php" -not -path "./vendor/*" -print0 | xargs -0 -n1 php -l
 
       - name: "Install PHP"
         uses: shivammathur/setup-php@v2
