@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
+## 1.1.8
+- [#24](https://github.com/rapidmail/rapidmail-apiv3-client-php/pull/24) adds support for mailing folders.
+- [#25](https://github.com/rapidmail/rapidmail-apiv3-client-php/pull/25) adds support for the newly implemented mailing
+'title' field.
+- Add support for PHP 8.5.
+- General CI and infrastructure improvements.
+
 ## 1.1.7
 - Fix issue with API version number from config being passed to Guzzle client instance
   See [#22](https://github.com/rapidmail/rapidmail-apiv3-client-php/pull/22) for details. Thanks to
