@@ -41,6 +41,46 @@ $response = $service->pause(/* MAILING ID */);
 $response = $service->cancel(/* MAILING ID */);
 ```
 
+## MailingFolders Service
+
+API service to manage mailing folders and allocate mailings to folders
+
+```php
+$service = $client->mailingFolders()
+```
+
+### Available methods
+
+#### Fetch all available mailing folders as array
+```php
+$folders = $service->fetchAll();
+```
+
+#### Create a new folder
+```php
+$newFolder = $service->create('New Folder Name');
+```
+
+#### Rename an existing folder
+```php
+$renamedFolder = $service->rename(1, 'New Folder Name');
+```
+
+#### Delete an existing folder
+```php
+$service->delete(1);
+```
+
+#### Assign mailing to a folder
+```php
+$mailing = $service->assign(1000, 2);
+```
+
+#### Remove folder assignment of mailing
+```php
+$mailing = $service->removeAssignment(1000);
+```
+
 ## MailingRecipients Service
 
 API service to get recipient details for specific mailing
