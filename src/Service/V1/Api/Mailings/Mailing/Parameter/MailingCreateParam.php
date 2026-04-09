@@ -33,6 +33,7 @@ class MailingCreateParam extends GenericParameter
         return [
             'from_name',
             'from_email',
+            'title',
             'subject',
             'file',
             'destinations',
@@ -62,6 +63,19 @@ class MailingCreateParam extends GenericParameter
     public function setFromEmail($email)
     {
         $this->setAttributeRaw('from_email', $email);
+
+        return $this;
+    }
+
+    /**
+     * Sets the mailing internal title
+     *
+     * @param string $title
+     * @return static
+     */
+    public function setTitle($title)
+    {
+        $this->setAttributeRaw('title', $title);
 
         return $this;
     }
