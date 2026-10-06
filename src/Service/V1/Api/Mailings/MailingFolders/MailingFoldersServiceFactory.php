@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Rapidmail\ApiClient\Service\V1\Api\Mailings\MailingFolders;
 
 use Rapidmail\ApiClient\Http\HttpClientInterface;

@@ -1,13 +1,10 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Rapidmail\ApiClient\Service\V1\Api\Mailings\MailingFolders;
 
 use GuzzleHttp\RequestOptions;
 use Rapidmail\ApiClient\Exception\ApiException;
 use Rapidmail\ApiClient\Service\AbstractService;
-use Rapidmail\ApiClient\Service\Response\HalResponse;
 use stdClass;
 
 class MailingFoldersService extends AbstractService
