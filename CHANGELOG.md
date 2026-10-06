@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
+## [1.1.9]
+- Fix `TypeError` in `MailingFoldersService::fetchAll` when no folders are returned from API.
+Thanks to [herbeckrobin](https://github.com/herbeckrobin) for the fix.
+
 ## 1.1.8
 - [#24](https://github.com/rapidmail/rapidmail-apiv3-client-php/pull/24) adds support for mailing folders.
 - [#25](https://github.com/rapidmail/rapidmail-apiv3-client-php/pull/25) adds support for the newly implemented mailing
