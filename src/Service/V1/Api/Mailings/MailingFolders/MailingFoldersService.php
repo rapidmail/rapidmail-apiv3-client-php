@@ -41,7 +41,7 @@ class MailingFoldersService extends AbstractService
         }
 
         if (empty($decodedResponse) || !property_exists($decodedResponse, 'folders')) {
-            $decodedResponse = [];
+            return[];
         }
 
         return $decodedResponse->folders;
