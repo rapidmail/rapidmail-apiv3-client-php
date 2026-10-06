@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
+## [1.1.10]
+- Fix compatibility with earlier PHP versions.
+
 ## [1.1.9]
 - Fix `TypeError` in `MailingFoldersService::fetchAll` when no folders are returned from API.
 Thanks to [herbeckrobin](https://github.com/herbeckrobin) for the fix.
