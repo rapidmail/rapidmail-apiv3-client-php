@@ -9,7 +9,7 @@ name: "CI"
 
 jobs:
   tests:
-    name: "Tests"
+    name: "Tests (PHP ${{ matrix.php-version }}, Guzzle ${{ matrix.guzzle-version }}, ${{ matrix.dependencies }})"
     runs-on: ubuntu-latest
 
     strategy:
@@ -30,9 +30,25 @@ jobs:
           - 8.5
           - 8.6
 
+        guzzle-version:
+          - "^6.3"
+          - "^7.0"
+          - "^8.0"
+
         dependencies:
           - lowest
           - highest
+
+        # Guzzle 7 requires PHP >= 7.2.5, Guzzle 8 requires PHP >= 7.4
+        exclude:
+          - { guzzle-version: "^7.0", php-version: 5.6 }
+          - { guzzle-version: "^7.0", php-version: 7.0 }
+          - { guzzle-version: "^7.0", php-version: 7.1 }
+          - { guzzle-version: "^8.0", php-version: 5.6 }
+          - { guzzle-version: "^8.0", php-version: 7.0 }
+          - { guzzle-version: "^8.0", php-version: 7.1 }
+          - { guzzle-version: "^8.0", php-version: 7.2 }
+          - { guzzle-version: "^8.0", php-version: 7.3 }
 
     steps:
       - name: "Checkout"
@@ -56,16 +72,20 @@ jobs:
           path: |
             ~/.composer/cache
             vendor
-          key: "php-${{ matrix.php-version }}-${{ matrix.dependencies }}"
-          restore-keys: "php-${{ matrix.php-version }}-${{ matrix.dependencies }}"
+          key: "php-${{ matrix.php-version }}-guzzle-${{ matrix.guzzle-version }}-${{ matrix.dependencies }}"
+          restore-keys: "php-${{ matrix.php-version }}-guzzle-${{ matrix.guzzle-version }}-${{ matrix.dependencies }}"
 
-      - name: "Install highest dependencies"
-        if: ${{ matrix.dependencies == 'highest' }}
-        run: "composer update --no-interaction --no-progress --no-suggest"
+      # Older Guzzle releases have security advisories and Composer >= 2.9 refuses to install them.
+      # Composer 2.2 (installed for PHP < 7.2.5) neither blocks advisories nor knows this setting.
+      - name: "Allow Guzzle releases with security advisories"
+        if: ${{ matrix.php-version >= 7.2 }}
+        run: 'composer config --json policy.advisories.ignore ''["guzzlehttp/guzzle", "guzzlehttp/psr7", "guzzlehttp/promises"]'''
 
-      - name: "Install lowest dependencies"
-        if: ${{ matrix.dependencies == 'lowest' }}
-        run: "composer update --no-interaction --no-progress --no-suggest --prefer-lowest"
+      - name: "Pin Guzzle major version"
+        run: 'composer require --no-update --no-interaction "guzzlehttp/guzzle:${{ matrix.guzzle-version }}"'
+
+      - name: "Install ${{ matrix.dependencies }} dependencies"
+        run: "composer update --no-interaction --no-progress --no-suggest ${{ matrix.dependencies == 'lowest' && '--prefer-lowest' || '' }}"
 
       - name: "Tests"
         run: "vendor/bin/phpunit"

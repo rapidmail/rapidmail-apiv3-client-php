@@ -20,9 +20,10 @@ class ApiException extends \Exception implements ApiClientException
 
         $message = $e->getMessage();
 
-        if (method_exists($e, 'hasResponse') && method_exists($e, 'getResponse')) {
+        if (method_exists($e, 'getResponse')) {
 
-            if ($e->hasResponse()) {
+            // Guzzle 8 removed hasResponse(): only exceptions carrying a response have getResponse()
+            if (!method_exists($e, 'hasResponse') || $e->hasResponse()) {
 
                 $uri = '';
 
