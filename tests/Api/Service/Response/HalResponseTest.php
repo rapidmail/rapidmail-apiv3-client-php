@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 
 class HalResponseTest extends TestCase
 {
-    protected function newHalResponse($data = [], HalResponse $expectedNextResponse = null)
+    protected function newHalResponse($data = [], ?HalResponse $expectedNextResponse = null)
     {
 
         $responseFactory = new ResponseFactoryMock();

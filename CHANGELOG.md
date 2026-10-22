@@ -5,11 +5,13 @@ All notable changes to this project will be documented in this file, in reverse 
 ## [2.0.0]
 ### Removed
 - Support for PHP versions prior to 7.4. Stay on the 1.x releases if you need to run on older PHP versions.
+- Support for Guzzle 6, which is end of life. The minimum supported versions are now Guzzle 7.15.2 and 8.0.1, the
+first releases without known security advisories.
 
 ### Changed
 - The client now makes use of PHP 7.4 language features: typed properties, scalar parameter and return type
 declarations as well as arrow functions.
-- PHPUnit 9.5 is now required for development; `yoast/phpunit-polyfills` was dropped.
+- PHPUnit 9.6.33 is now required for development; `yoast/phpunit-polyfills` was dropped.
 
 ### Upgrading from 1.x
 - Method signatures now carry native parameter and return types. If you extend or implement classes or interfaces of

@@ -24,12 +24,8 @@ class HttpClientFactoryTest extends TestCase
 
         $this->assertInstanceOf(HttpClientInterface::class, $client);
 
-        $class = new \ReflectionClass(HttpClientFacade::class);
-        $property = $class->getProperty('client');
-        $property->setAccessible(true);
-
         /** @var Client $internalClient */
-        $internalClient = $property->getValue($client);
+        $internalClient = \Closure::bind(fn() => $this->client, $client, HttpClientFacade::class)();
         $headers = $internalClient->getConfig('headers');
 
         $this->assertEquals('https://www.example.net/version/', (string)$internalClient->getConfig('base_uri'));
