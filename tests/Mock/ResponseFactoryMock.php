@@ -5,26 +5,18 @@ namespace Rapidmail\ApiClientTests\Mock;
 use Psr\Http\Message\ResponseInterface;
 use Rapidmail\ApiClient\Http\HttpClientInterface;
 use Rapidmail\ApiClient\Service\Response\HalResponse;
+use Rapidmail\ApiClient\Service\Response\HalResponsePaginationIterator;
 use Rapidmail\ApiClient\Service\Response\HalResponseResourceIterator;
 use Rapidmail\ApiClient\Service\Response\ResponseFactory;
 
 class ResponseFactoryMock extends ResponseFactory
 {
 
-    /**
-     * @var string|null
-     */
-    private $lastResourceKey;
+    private ?string $lastResourceKey = null;
 
-    /**
-     * @var HalResponse|null
-     */
-    private $expectedHalResponse;
+    private ?HalResponse $expectedHalResponse = null;
 
-    /**
-     * @var HalResponseResourceIterator|null
-     */
-    private $expectedHalResourceIterator;
+    private ?HalResponseResourceIterator $expectedHalResourceIterator = null;
 
     /**
      * @param HalResponse $expectedHalResponse
@@ -61,9 +53,9 @@ class ResponseFactoryMock extends ResponseFactory
     /**
      * @inheritDoc
      */
-    public function newHalResponse(HttpClientInterface $client, ResponseInterface $response)
+    public function newHalResponse(HttpClientInterface $client, ResponseInterface $response): HalResponse
     {
-        return $this->expectedHalResponse;
+        return $this->expectedHalResponse ?? new HalResponse($client, $this);
     }
 
     /**
@@ -71,11 +63,14 @@ class ResponseFactoryMock extends ResponseFactory
      */
     public function newHalResponseResourceIterator(
         HttpClientInterface $client,
-        $resourceKey,
+        string $resourceKey,
         ResponseInterface $response
-    ) {
+    ): HalResponseResourceIterator {
         $this->lastResourceKey = $resourceKey;
-        return $this->expectedHalResourceIterator;
+        return $this->expectedHalResourceIterator ?? new HalResponseResourceIterator(
+            new HalResponsePaginationIterator(new HalResponse($client, $this)),
+            $resourceKey
+        );
     }
 
 }

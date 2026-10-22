@@ -11,7 +11,7 @@ class MailingFoldersServiceFactory implements ServiceFactoryInterface
     /**
      * @inheritDoc
      */
-    public function create($dependencies = [])
+    public function create(array $dependencies = []): MailingFoldersService
     {
 
         return new MailingFoldersService(

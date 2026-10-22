@@ -8,10 +8,7 @@ use Rapidmail\ApiClient\Service\Parameter\GenericParameter;
 class MailingCreateParam extends GenericParameter
 {
 
-    /**
-     * @var ParameterFactory
-     */
-    protected $parameterFactory;
+    protected ParameterFactory $parameterFactory;
 
     /**
      * Constructor
@@ -28,7 +25,7 @@ class MailingCreateParam extends GenericParameter
     /**
      * @inheritDoc
      */
-    protected function getKnownAttributeKeys()
+    protected function getKnownAttributeKeys(): array
     {
         return [
             'from_name',
@@ -140,8 +137,8 @@ class MailingCreateParam extends GenericParameter
     /**
      * Sets mailing destinations
      *
+     * @param array[]|array[][]|MailingCreateParamDestinationAttr[] $destinations
      * @return static
-     * @var array[]|array[][]|MailingCreateParamDestinationAttr[] $destinations
      */
     public function setDestinations(array $destinations)
     {

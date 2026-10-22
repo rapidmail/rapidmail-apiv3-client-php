@@ -36,7 +36,7 @@ class RecipientImportQueryParam extends GenericParameter
     /**
      * @inheritDoc
      */
-    protected function getKnownAttributeKeys()
+    protected function getKnownAttributeKeys(): array
     {
         return [
             'delimiter',
@@ -82,7 +82,7 @@ class RecipientImportQueryParam extends GenericParameter
     public function setRecipientExists($mode)
     {
 
-        if (!in_array($mode, static::RECIPIENT_EXISTS_HANDLING)) {
+        if (!in_array($mode, static::RECIPIENT_EXISTS_HANDLING, true)) {
 
             throw new InvalidArgumentException(
                 'Invalid mode provided. Must be one of: ' . implode(', ', static::RECIPIENT_EXISTS_HANDLING)
@@ -103,7 +103,7 @@ class RecipientImportQueryParam extends GenericParameter
     public function setRecipientMissing($mode)
     {
 
-        if (!in_array($mode, static::RECIPIENT_MISSING_HANDLING)) {
+        if (!in_array($mode, static::RECIPIENT_MISSING_HANDLING, true)) {
 
             throw new InvalidArgumentException(
                 'Invalid mode provided. Must be one of: ' . implode(', ', static::RECIPIENT_MISSING_HANDLING)
@@ -124,7 +124,7 @@ class RecipientImportQueryParam extends GenericParameter
     public function setRecipientDeleted($mode)
     {
 
-        if (!in_array($mode, static::RECIPIENT_DELETED_HANDLING)) {
+        if (!in_array($mode, static::RECIPIENT_DELETED_HANDLING, true)) {
 
             throw new InvalidArgumentException(
                 'Invalid mode provided. Must be one of: ' . implode(', ', static::RECIPIENT_DELETED_HANDLING)

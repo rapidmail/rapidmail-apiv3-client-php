@@ -46,7 +46,7 @@ class MailingCreateParamDestinationAttr extends GenericParameter
     /**
      * @inheritDoc
      */
-    protected function getKnownAttributeKeys()
+    protected function getKnownAttributeKeys(): array
     {
         return [
             'id',
@@ -82,7 +82,7 @@ class MailingCreateParamDestinationAttr extends GenericParameter
     public function setType($type)
     {
 
-        if (!in_array($type, static::ALLOWED_TYPES)) {
+        if (!in_array($type, static::ALLOWED_TYPES, true)) {
 
             throw new InvalidArgumentException(
                 'Destination type not allowed. Must be one of: ' . implode(', ', static::ALLOWED_TYPES)
@@ -103,7 +103,7 @@ class MailingCreateParamDestinationAttr extends GenericParameter
     public function setAction($action)
     {
 
-        if (!in_array($action, static::ALLOWED_ACTIONS)) {
+        if (!in_array($action, static::ALLOWED_ACTIONS, true)) {
 
             throw new InvalidArgumentException(
                 'Destination action not allowed. Must be one of: ' . implode(', ', static::ALLOWED_ACTIONS)

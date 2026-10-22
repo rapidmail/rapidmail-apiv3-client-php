@@ -13,22 +13,16 @@ use Rapidmail\ApiClient\Service\Response\ResponseFactory;
 abstract class AbstractService implements ServiceInterface
 {
 
-    /**
-     * @var HttpClientInterface
-     */
-    protected $client;
+    protected HttpClientInterface $client;
 
-    /**
-     * @var ResponseFactory
-     */
-    protected $responseFactory;
+    protected ResponseFactory $responseFactory;
 
     /**
      * Returns the resources URI path
      *
      * @return string
      */
-    protected abstract function getResourcePath();
+    abstract protected function getResourcePath(): string;
 
     /**
      * Constructor
@@ -45,12 +39,12 @@ abstract class AbstractService implements ServiceInterface
     /**
      * Retrieve a single resource
      *
-     * @param int $id
+     * @param int|string $id
      * @return ResponseInterface
      *
      * @throws ApiException
      */
-    protected function _get($id)
+    protected function _get($id): ResponseInterface
     {
         return $this->client->request('GET', "{$this->getResourcePath()}/{$id}");
     }
@@ -63,7 +57,7 @@ abstract class AbstractService implements ServiceInterface
      *
      * @throws ApiException
      */
-    protected function _query(array $filter = [])
+    protected function _query(array $filter = []): ResponseInterface
     {
         return $this->client->request('GET', $this->getResourcePath(), ['query' => $filter]);
     }
@@ -71,12 +65,12 @@ abstract class AbstractService implements ServiceInterface
     /**
      * Delete a resource
      *
-     * @param int $id
+     * @param int|string $id
      * @return ResponseInterface
      *
      * @throws ApiException
      */
-    protected function _delete($id)
+    protected function _delete($id): ResponseInterface
     {
         return $this->client->request('DELETE', "{$this->getResourcePath()}/{$id}");
     }

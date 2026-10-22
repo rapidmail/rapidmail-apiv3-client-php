@@ -11,7 +11,7 @@ class ParameterFactory
      * @param array $input
      * @return RecipientQueryParam
      */
-    public function newQueryParam(array $input = [])
+    public function newQueryParam(array $input = []): RecipientQueryParam
     {
         return new RecipientQueryParam($input);
     }
@@ -22,7 +22,7 @@ class ParameterFactory
      * @param array $input
      * @return RecipientCreateParam
      */
-    public function newCreateParam(array $input = [])
+    public function newCreateParam(array $input = []): RecipientCreateParam
     {
         return new RecipientCreateParam($input);
     }
@@ -33,7 +33,7 @@ class ParameterFactory
      * @param array $input
      * @return RecipientCreateQueryParam
      */
-    public function newCreateQueryParam(array $input = [])
+    public function newCreateQueryParam(array $input = []): RecipientCreateQueryParam
     {
         return new RecipientCreateQueryParam($input);
     }
@@ -44,7 +44,7 @@ class ParameterFactory
      * @param array $input
      * @return RecipientDeleteQueryParam
      */
-    public function newDeleteQueryParam(array $input = [])
+    public function newDeleteQueryParam(array $input = []): RecipientDeleteQueryParam
     {
         return new RecipientDeleteQueryParam($input);
     }
@@ -55,7 +55,7 @@ class ParameterFactory
      * @param array $input
      * @return RecipientImportParam
      */
-    public function newImportParam(array $input = [])
+    public function newImportParam(array $input = []): RecipientImportParam
     {
         return new RecipientImportParam($this, $input);
     }
@@ -66,7 +66,7 @@ class ParameterFactory
      * @param array $input
      * @return RecipientImportQueryParam
      */
-    public function newImportQueryParam(array $input = [])
+    public function newImportQueryParam(array $input = []): RecipientImportQueryParam
     {
         return new RecipientImportQueryParam($input);
     }
@@ -77,7 +77,7 @@ class ParameterFactory
      * @param array $input
      * @return RecipientImportParamFileAttr
      */
-    public function newImportParamFileAttr(array $input = [])
+    public function newImportParamFileAttr(array $input = []): RecipientImportParamFileAttr
     {
         return new RecipientImportParamFileAttr($input);
     }

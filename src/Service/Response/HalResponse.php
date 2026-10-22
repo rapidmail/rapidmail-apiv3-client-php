@@ -9,25 +9,13 @@ use Rapidmail\ApiClient\Http\HttpClientInterface;
 class HalResponse implements ResponseInterface, \ArrayAccess, \IteratorAggregate
 {
 
-    /**
-     * @var HttpClientInterface
-     */
-    private $client;
+    private HttpClientInterface $client;
 
-    /**
-     * @var ResponseFactory
-     */
-    private $responseFactory;
+    private ResponseFactory $responseFactory;
 
-    /**
-     * @var array
-     */
-    private $links = [];
+    private array $links = [];
 
-    /**
-     * @var array
-     */
-    private $data = [];
+    private array $data = [];
 
     /**
      * Constructor
@@ -47,21 +35,16 @@ class HalResponse implements ResponseInterface, \ArrayAccess, \IteratorAggregate
             unset($data['_links']);
         }
 
-        $data = array_map(
-            function ($item) {
-                return is_array($item) ? new static($this->client, $this->responseFactory, $item) : $item;
-            },
+        $this->data = array_map(
+            fn($item) => is_array($item) ? new static($this->client, $this->responseFactory, $item) : $item,
             $data
         );
-
-        $this->data = $data;
     }
 
     /**
      * @inheritDoc
      */
-    #[\ReturnTypeWillChange]
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool
     {
         return isset($this->data[$offset]);
     }
@@ -78,8 +61,7 @@ class HalResponse implements ResponseInterface, \ArrayAccess, \IteratorAggregate
     /**
      * @inheritDoc
      */
-    #[\ReturnTypeWillChange]
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
         throw new NotImplementedException('Write access is not implemented for ' . static::class);
     }
@@ -87,8 +69,7 @@ class HalResponse implements ResponseInterface, \ArrayAccess, \IteratorAggregate
     /**
      * @inheritDoc
      */
-    #[\ReturnTypeWillChange]
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
         throw new NotImplementedException('Write access is not implemented for ' . static::class);
     }
@@ -96,13 +77,11 @@ class HalResponse implements ResponseInterface, \ArrayAccess, \IteratorAggregate
     /**
      * @return array
      */
-    public function toArray()
+    public function toArray(): array
     {
 
         return array_map(
-            function ($item) {
-                return $item instanceof static ? $item->toArray() : $item;
-            },
+            fn($item) => $item instanceof static ? $item->toArray() : $item,
             $this->data
         );
 
@@ -111,7 +90,7 @@ class HalResponse implements ResponseInterface, \ArrayAccess, \IteratorAggregate
     /**
      * @inheritDoc
      */
-    public function __debugInfo()
+    public function __debugInfo(): array
     {
         return $this->toArray();
     }
@@ -119,15 +98,15 @@ class HalResponse implements ResponseInterface, \ArrayAccess, \IteratorAggregate
     /**
      * @inheritDoc
      */
-    public function __toString()
+    public function __toString(): string
     {
-        return (string)print_r($this->toArray(), true);
+        return print_r($this->toArray(), true);
     }
 
     /**
      * @return HalResponse
      */
-    public function self()
+    public function self(): self
     {
         return $this;
     }
@@ -136,7 +115,7 @@ class HalResponse implements ResponseInterface, \ArrayAccess, \IteratorAggregate
      * @return HalResponse|null
      * @throws ApiException
      */
-    public function next()
+    public function next(): ?self
     {
         return $this->navigate('next');
     }
@@ -145,7 +124,7 @@ class HalResponse implements ResponseInterface, \ArrayAccess, \IteratorAggregate
      * @return HalResponse|null
      * @throws ApiException
      */
-    public function prev()
+    public function prev(): ?self
     {
         return $this->navigate('prev');
     }
@@ -154,7 +133,7 @@ class HalResponse implements ResponseInterface, \ArrayAccess, \IteratorAggregate
      * @return HalResponse|null
      * @throws ApiException
      */
-    public function first()
+    public function first(): ?self
     {
         return $this->navigate('first');
     }
@@ -163,7 +142,7 @@ class HalResponse implements ResponseInterface, \ArrayAccess, \IteratorAggregate
      * @return HalResponse|null
      * @throws ApiException
      */
-    public function last()
+    public function last(): ?self
     {
         return $this->navigate('last');
     }
@@ -175,7 +154,7 @@ class HalResponse implements ResponseInterface, \ArrayAccess, \IteratorAggregate
      * @return HalResponse|null
      * @throws ApiException
      */
-    protected function navigate($target)
+    protected function navigate(string $target): ?self
     {
 
         if (!isset($this->links[$target]) || !isset($this->links[$target]['href'])) {
@@ -197,8 +176,7 @@ class HalResponse implements ResponseInterface, \ArrayAccess, \IteratorAggregate
     /**
      * @inheritDoc
      */
-    #[\ReturnTypeWillChange]
-    public function getIterator()
+    public function getIterator(): \ArrayIterator
     {
         return new \ArrayIterator($this->data);
     }

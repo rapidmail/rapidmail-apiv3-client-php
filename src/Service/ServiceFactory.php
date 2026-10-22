@@ -10,15 +10,9 @@ use Rapidmail\ApiClient\Service\Response\ResponseFactory;
 class ServiceFactory
 {
 
-    /**
-     * @var array
-     */
-    private $userConfig;
+    private array $userConfig;
 
-    /**
-     * @var HttpClientFactory
-     */
-    private $httpClientFactory;
+    private HttpClientFactory $httpClientFactory;
 
     /**
      * Constructor
@@ -35,7 +29,7 @@ class ServiceFactory
     /**
      * @return array
      */
-    private function getGlobalConfig()
+    private function getGlobalConfig(): array
     {
         return require __DIR__ . '/../Config/services.php';
     }
@@ -45,10 +39,10 @@ class ServiceFactory
      *
      * @param string $service
      * @param string|null $version
-     * @return \Rapidmail\ApiClient\Service\ServiceInterface
+     * @return ServiceInterface
      * @throws NotImplementedException
      */
-    public function createService($service, $version = null)
+    public function createService(string $service, ?string $version = null): ServiceInterface
     {
 
         $globalConfig = $this->getGlobalConfig();
@@ -74,7 +68,7 @@ class ServiceFactory
         $factoryClass = $globalConfig['services'][$service]['config'][$version]['factory_class'];
         $interfaces = class_implements($factoryClass);
 
-        if ($interfaces === false || in_array(ServiceFactoryInterface::class, $interfaces) === false) {
+        if ($interfaces === false || !in_array(ServiceFactoryInterface::class, $interfaces, true)) {
             throw new NotImplementedException("Service factory {$factoryClass} must implement ServiceFactoryInterface");
         }
 

@@ -12,7 +12,7 @@ class MailingRecipientsServiceFactory implements ServiceFactoryInterface
     /**
      * @inheritDoc
      */
-    public function create($dependencies = [])
+    public function create(array $dependencies = []): MailingRecipientsService
     {
 
         return new MailingRecipientsService(

@@ -14,7 +14,7 @@ class ParameterFactory
      * @param array $input
      * @return RecipientlistCreateParam
      */
-    public function newCreateParam(array $input = [])
+    public function newCreateParam(array $input = []): RecipientlistCreateParam
     {
         return new RecipientlistCreateParam($input);
     }
@@ -25,7 +25,7 @@ class ParameterFactory
      * @param array $input
      * @return RecipientlistActivityStatsParam
      */
-    public function newActivityStatsParam(array $input = [])
+    public function newActivityStatsParam(array $input = []): RecipientlistActivityStatsParam
     {
         return new RecipientlistActivityStatsParam($input);
     }

@@ -4,7 +4,7 @@ namespace Rapidmail\ApiClientTests\Api\Service\Parameter;
 
 use InvalidArgumentException;
 use Rapidmail\ApiClient\Service\Parameter\FileAttr;
-use Yoast\PHPUnitPolyfills\TestCases\TestCase;
+use PHPUnit\Framework\TestCase;
 
 class FileAttrTest extends TestCase
 {

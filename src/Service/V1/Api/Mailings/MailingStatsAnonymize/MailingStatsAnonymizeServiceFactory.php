@@ -12,7 +12,7 @@ class MailingStatsAnonymizeServiceFactory implements ServiceFactoryInterface
     /**
      * @inheritDoc
      */
-    public function create($dependencies = [])
+    public function create(array $dependencies = []): MailingStatsAnonymizeService
     {
         return new MailingStatsAnonymizeService(
             $dependencies[HttpClientInterface::class],

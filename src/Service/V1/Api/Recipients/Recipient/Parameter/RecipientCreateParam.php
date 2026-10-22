@@ -27,7 +27,7 @@ class RecipientCreateParam extends GenericParameter
     /**
      * @inheritDoc
      */
-    protected function getKnownAttributeKeys()
+    protected function getKnownAttributeKeys(): array
     {
 
         return [
@@ -109,7 +109,7 @@ class RecipientCreateParam extends GenericParameter
     public function setGender($gender)
     {
 
-        if (!in_array($gender, static::GENDER)) {
+        if (!in_array($gender, static::GENDER, true)) {
 
             throw new InvalidArgumentException(
                 'Invalid gender provided. Must be one of: ' . implode(', ', static::GENDER)
@@ -183,7 +183,7 @@ class RecipientCreateParam extends GenericParameter
     public function setMailtype($mailtype)
     {
 
-        if (!in_array($mailtype, static::MAILTYPES)) {
+        if (!in_array($mailtype, static::MAILTYPES, true)) {
 
             throw new InvalidArgumentException(
                 'Invalid mailtype provided. Must be one of: ' . implode(', ', static::MAILTYPES)

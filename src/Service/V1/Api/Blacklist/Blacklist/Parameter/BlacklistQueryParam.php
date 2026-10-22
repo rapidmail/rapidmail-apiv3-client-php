@@ -7,7 +7,7 @@ use Rapidmail\ApiClient\Service\Parameter\GenericParameter;
 class BlacklistQueryParam extends GenericParameter
 {
 
-    protected function getKnownAttributeKeys()
+    protected function getKnownAttributeKeys(): array
     {
         return [
             'page',

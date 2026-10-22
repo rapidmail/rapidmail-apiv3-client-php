@@ -7,15 +7,9 @@ use Rapidmail\ApiClient\Util\CallbackIterator;
 class HalResponsePaginationIterator implements ResponseInterface, \Iterator, \Countable
 {
 
-    /**
-     * @var HalResponse
-     */
-    private $initial;
+    private HalResponse $initial;
 
-    /**
-     * @var HalResponse
-     */
-    private $current;
+    private ?HalResponse $current;
 
     /**
      * Constructor
@@ -31,8 +25,7 @@ class HalResponsePaginationIterator implements ResponseInterface, \Iterator, \Co
     /**
      * @inheritDoc
      */
-    #[\ReturnTypeWillChange]
-    public function current()
+    public function current(): ?HalResponse
     {
         return $this->current;
     }
@@ -40,8 +33,7 @@ class HalResponsePaginationIterator implements ResponseInterface, \Iterator, \Co
     /**
      * @inheritDoc
      */
-    #[\ReturnTypeWillChange]
-    public function next()
+    public function next(): void
     {
         $this->current = $this->current->next();
     }
@@ -58,8 +50,7 @@ class HalResponsePaginationIterator implements ResponseInterface, \Iterator, \Co
     /**
      * @inheritDoc
      */
-    #[\ReturnTypeWillChange]
-    public function valid()
+    public function valid(): bool
     {
         return $this->current !== null;
     }
@@ -67,8 +58,7 @@ class HalResponsePaginationIterator implements ResponseInterface, \Iterator, \Co
     /**
      * @inheritDoc
      */
-    #[\ReturnTypeWillChange]
-    public function rewind()
+    public function rewind(): void
     {
         $this->current = $this->initial;
     }
@@ -76,8 +66,7 @@ class HalResponsePaginationIterator implements ResponseInterface, \Iterator, \Co
     /**
      * @inheritDoc
      */
-    #[\ReturnTypeWillChange]
-    public function count()
+    public function count(): int
     {
         return $this->current['page_count'];
     }
@@ -85,7 +74,7 @@ class HalResponsePaginationIterator implements ResponseInterface, \Iterator, \Co
     /**
      * @return int
      */
-    public function totalCount()
+    public function totalCount(): int
     {
         return $this->current['total_items'];
     }
@@ -93,15 +82,13 @@ class HalResponsePaginationIterator implements ResponseInterface, \Iterator, \Co
     /**
      * @return array
      */
-    protected function toArray()
+    protected function toArray(): array
     {
 
         return iterator_to_array(
             new CallbackIterator(
                 $this,
-                function ($item) {
-                    return $item instanceof HalResponse ? $item->toArray() : $item;
-                }
+                fn($item) => $item instanceof HalResponse ? $item->toArray() : $item
             )
         );
 
@@ -110,7 +97,7 @@ class HalResponsePaginationIterator implements ResponseInterface, \Iterator, \Co
     /**
      * @inheritDoc
      */
-    public function __debugInfo()
+    public function __debugInfo(): array
     {
         return $this->toArray();
     }
@@ -118,9 +105,9 @@ class HalResponsePaginationIterator implements ResponseInterface, \Iterator, \Co
     /**
      * @inheritDoc
      */
-    public function __toString()
+    public function __toString(): string
     {
-        return (string)print_r($this->toArray(), true);
+        return print_r($this->toArray(), true);
     }
 
 }

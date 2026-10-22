@@ -6,7 +6,17 @@ use Rapidmail\ApiClient\Exception\IncompatiblePlatformException;
 use Rapidmail\ApiClient\Exception\NotImplementedException;
 use Rapidmail\ApiClient\Http\HttpClientFactory;
 use Rapidmail\ApiClient\Service\ServiceFactory;
+use Rapidmail\ApiClient\Service\V1\Api\ApiUsers\ApiUser\ApiUserService;
+use Rapidmail\ApiClient\Service\V1\Api\Blacklist\Blacklist\BlacklistService;
+use Rapidmail\ApiClient\Service\V1\Api\Jobs\Job\JobService;
 use Rapidmail\ApiClient\Service\V1\Api\Mailings\MailingFolders\MailingFoldersService;
+use Rapidmail\ApiClient\Service\V1\Api\Mailings\MailingRecipients\MailingRecipientsService;
+use Rapidmail\ApiClient\Service\V1\Api\Mailings\MailingStatsAnonymize\MailingStatsAnonymizeService;
+use Rapidmail\ApiClient\Service\V1\Api\Mailings\MailingStats\MailingStatsService;
+use Rapidmail\ApiClient\Service\V1\Api\Mailings\Mailing\MailingService;
+use Rapidmail\ApiClient\Service\V1\Api\Recipientlists\Recipientlist\RecipientlistService;
+use Rapidmail\ApiClient\Service\V1\Api\Recipients\Recipient\RecipientService;
+use Rapidmail\ApiClient\Service\V1\Api\TrxEmails\TrxEmail\TrxEmailService;
 use Rapidmail\ApiClient\Util\PlatformRequirements;
 
 if (is_file(__DIR__ . '/../vendor/autoload.php')) {
@@ -22,12 +32,9 @@ class Client
     /**
      * @var string
      */
-    const VERSION = '1.0.0';
+    const VERSION = '2.0.0';
 
-    /**
-     * @var ServiceFactory
-     */
-    private $serviceFactory;
+    private ServiceFactory $serviceFactory;
 
     /**
      * Constructor
@@ -43,14 +50,14 @@ class Client
 
         $config = [
             'auth' => [
-                isset($args[0]) && is_string($args[0]) ? $args[0] : '',
-                isset($args[1]) && is_string($args[1]) ? $args[1] : ''
+                is_string($args[0] ?? null) ? $args[0] : '',
+                is_string($args[1] ?? null) ? $args[1] : ''
             ]
         ];
 
         // Assume a configuration array was provided
 
-        if (isset($args[0]) && is_array($args[0])) {
+        if (is_array($args[0] ?? null)) {
             $config = $args[0];
         }
 
@@ -69,12 +76,11 @@ class Client
      * Creates a new mailing service
      *
      * @param string|null $version
-     * @return \Rapidmail\ApiClient\Service\V1\Api\Mailings\Mailing\MailingService
+     * @return MailingService
      * @throws NotImplementedException
      */
-    public function mailings($version = null)
+    public function mailings(?string $version = null): MailingService
     {
-        /** @noinspection PhpIncompatibleReturnTypeInspection */
         return $this->serviceFactory->createService('mailings', $version);
     }
 
@@ -82,12 +88,11 @@ class Client
      * Creates a new mailing recipients service
      *
      * @param string|null $version
-     * @return \Rapidmail\ApiClient\Service\V1\Api\Mailings\MailingRecipients\MailingRecipientsService
+     * @return MailingRecipientsService
      * @throws NotImplementedException
      */
-    public function mailingRecipients($version = null)
+    public function mailingRecipients(?string $version = null): MailingRecipientsService
     {
-        /** @noinspection PhpIncompatibleReturnTypeInspection */
         return $this->serviceFactory->createService('mailing_recipients', $version);
     }
 
@@ -95,12 +100,11 @@ class Client
      * Creates a new mailing folders service
      *
      * @param string|null $version
-     * @return \Rapidmail\ApiClient\Service\V1\Api\Mailings\MailingFolders\MailingFoldersService
+     * @return MailingFoldersService
      * @throws NotImplementedException
      */
-    public function mailingFolders($version = null)
+    public function mailingFolders(?string $version = null): MailingFoldersService
     {
-        /** @noinspection PhpIncompatibleReturnTypeInspection */
         return $this->serviceFactory->createService('mailing_folders', $version);
     }
 
@@ -108,12 +112,11 @@ class Client
      * Creates a new mailing stats service
      *
      * @param string|null $version
-     * @return \Rapidmail\ApiClient\Service\V1\Api\Mailings\MailingStats\MailingStatsService
+     * @return MailingStatsService
      * @throws NotImplementedException
      */
-    public function mailingStats($version = null)
+    public function mailingStats(?string $version = null): MailingStatsService
     {
-        /** @noinspection PhpIncompatibleReturnTypeInspection */
         return $this->serviceFactory->createService('mailing_stats', $version);
     }
 
@@ -121,12 +124,11 @@ class Client
      * Creates a new mailing stats anonymize service
      *
      * @param string|null $version
-     * @return \Rapidmail\ApiClient\Service\V1\Api\Mailings\MailingStatsAnonymize\MailingStatsAnonymizeService
+     * @return MailingStatsAnonymizeService
      * @throws NotImplementedException
      */
-    public function mailingStatsAnonymize($version = null)
+    public function mailingStatsAnonymize(?string $version = null): MailingStatsAnonymizeService
     {
-        /** @noinspection PhpIncompatibleReturnTypeInspection */
         return $this->serviceFactory->createService('mailing_stats_anonymize', $version);
     }
 
@@ -134,12 +136,11 @@ class Client
      * Creates a new API service to manage recipientlists
      *
      * @param string|null $version
-     * @return \Rapidmail\ApiClient\Service\V1\Api\Recipientlists\Recipientlist\RecipientlistService
+     * @return RecipientlistService
      * @throws NotImplementedException
      */
-    public function recipientlists($version = null)
+    public function recipientlists(?string $version = null): RecipientlistService
     {
-        /** @noinspection PhpIncompatibleReturnTypeInspection */
         return $this->serviceFactory->createService('recipientlists', $version);
     }
 
@@ -147,12 +148,11 @@ class Client
      * Creates a new API service to manage recipients
      *
      * @param string|null $version
-     * @return \Rapidmail\ApiClient\Service\V1\Api\Recipients\Recipient\RecipientService
+     * @return RecipientService
      * @throws NotImplementedException
      */
-    public function recipients($version = null)
+    public function recipients(?string $version = null): RecipientService
     {
-        /** @noinspection PhpIncompatibleReturnTypeInspection */
         return $this->serviceFactory->createService('recipients', $version);
     }
 
@@ -160,12 +160,11 @@ class Client
      * Creates a new API service to manage jobs
      *
      * @param string|null $version
-     * @return \Rapidmail\ApiClient\Service\V1\Api\Jobs\Job\JobService
+     * @return JobService
      * @throws NotImplementedException
      */
-    public function jobs($version = null)
+    public function jobs(?string $version = null): JobService
     {
-        /** @noinspection PhpIncompatibleReturnTypeInspection */
         return $this->serviceFactory->createService('jobs', $version);
     }
 
@@ -173,12 +172,11 @@ class Client
      * Creates a new API service to fetch transactional emails
      *
      * @param string|null $version
-     * @return \Rapidmail\ApiClient\Service\V1\Api\TrxEmails\TrxEmail\TrxEmailService
+     * @return TrxEmailService
      * @throws NotImplementedException
      */
-    public function transactionEmails($version = null)
+    public function transactionEmails(?string $version = null): TrxEmailService
     {
-        /** @noinspection PhpIncompatibleReturnTypeInspection */
         return $this->serviceFactory->createService('trx_emails', $version);
     }
 
@@ -186,12 +184,11 @@ class Client
      * Creates a new API service to manage API users
      *
      * @param string|null $version
-     * @return \Rapidmail\ApiClient\Service\V1\Api\ApiUsers\ApiUser\ApiUserService
+     * @return ApiUserService
      * @throws NotImplementedException
      */
-    public function apiUsers($version = null)
+    public function apiUsers(?string $version = null): ApiUserService
     {
-        /** @noinspection PhpIncompatibleReturnTypeInspection */
         return $this->serviceFactory->createService('apiusers', $version);
     }
 
@@ -199,12 +196,11 @@ class Client
      * Creates a new API service to manage blacklist entries
      *
      * @param string|null $version
-     * @return \Rapidmail\ApiClient\Service\V1\Api\Blacklist\Blacklist\BlacklistService
+     * @return BlacklistService
      * @throws NotImplementedException
      */
-    public function blacklist($version = null)
+    public function blacklist(?string $version = null): BlacklistService
     {
-        /** @noinspection PhpIncompatibleReturnTypeInspection */
         return $this->serviceFactory->createService('blacklist', $version);
     }
 

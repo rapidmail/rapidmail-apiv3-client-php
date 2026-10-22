@@ -4,15 +4,13 @@ namespace Rapidmail\ApiClient\Http;
 
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\GuzzleException;
+use Psr\Http\Message\ResponseInterface;
 use Rapidmail\ApiClient\Exception\ApiException;
 
 class HttpClientFacade implements HttpClientInterface
 {
 
-    /**
-     * @var ClientInterface
-     */
-    private $client;
+    private ClientInterface $client;
 
     /**
      * Constructor
@@ -27,7 +25,7 @@ class HttpClientFacade implements HttpClientInterface
     /**
      * @inheritDoc
      */
-    public function request($method, $uri, array $options = [])
+    public function request(string $method, $uri, array $options = []): ResponseInterface
     {
 
         try {

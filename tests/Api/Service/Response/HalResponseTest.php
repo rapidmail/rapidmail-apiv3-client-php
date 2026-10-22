@@ -6,7 +6,7 @@ use Rapidmail\ApiClient\Exception\NotImplementedException;
 use Rapidmail\ApiClient\Service\Response\HalResponse;
 use Rapidmail\ApiClientTests\Mock\HttpClientMock;
 use Rapidmail\ApiClientTests\Mock\ResponseFactoryMock;
-use Yoast\PHPUnitPolyfills\TestCases\TestCase;
+use PHPUnit\Framework\TestCase;
 
 class HalResponseTest extends TestCase
 {

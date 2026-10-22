@@ -20,7 +20,7 @@ class FileAttr extends GenericParameter
     /**
      * @inheritDoc
      */
-    protected function getKnownAttributeKeys()
+    protected function getKnownAttributeKeys(): array
     {
         return [
             'content',
@@ -60,7 +60,7 @@ class FileAttr extends GenericParameter
     public function setType($type)
     {
 
-        if (!in_array($type, static::ALLOWED_MIME_TYPES)) {
+        if (!in_array($type, static::ALLOWED_MIME_TYPES, true)) {
             throw new InvalidArgumentException(
                 'Invalid mime type for file content. Must be one of: ' . implode(', ', static::ALLOWED_MIME_TYPES)
             );

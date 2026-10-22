@@ -10,7 +10,7 @@ class PlatformRequirements
     /**
      * @var string
      */
-    const MIN_PHP_VERSION = "5.6.0";
+    const MIN_PHP_VERSION = "7.4.0";
 
     /**
      * @var string[]
@@ -25,12 +25,12 @@ class PlatformRequirements
      *
      * @throws IncompatiblePlatformException
      */
-    public function assertPlatformRequirements()
+    public function assertPlatformRequirements(): void
     {
 
         $version = static::MIN_PHP_VERSION;
 
-        if (!(bool)version_compare(PHP_VERSION, $version, ">=")) {
+        if (!version_compare(PHP_VERSION, $version, ">=")) {
 
             throw new IncompatiblePlatformException(
                 "Minimum version of PHP required is {$version}"

@@ -27,7 +27,7 @@ class MailingQueryParam extends GenericParameter
     /**
      * @inheritDoc
      */
-    protected function getKnownAttributeKeys()
+    protected function getKnownAttributeKeys(): array
     {
 
         return [
@@ -61,7 +61,7 @@ class MailingQueryParam extends GenericParameter
     public function setStatus($status)
     {
 
-        if (!in_array($status, static::STATUS_VALUES)) {
+        if (!in_array($status, static::STATUS_VALUES, true)) {
 
             throw new InvalidArgumentException(
                 'Invalid status provided. Must be one of: ' . implode(', ', static::STATUS_VALUES)

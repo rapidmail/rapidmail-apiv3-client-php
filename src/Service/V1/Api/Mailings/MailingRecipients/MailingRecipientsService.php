@@ -16,7 +16,7 @@ class MailingRecipientsService extends AbstractService
     /**
      * @inheritDoc
      */
-    protected function getResourcePath()
+    protected function getResourcePath(): string
     {
         return 'mailings';
     }
@@ -29,7 +29,7 @@ class MailingRecipientsService extends AbstractService
      * @return HalResponse
      * @throws ApiException
      */
-    public function get($mailingId, $mailingRecipientId)
+    public function get(int $mailingId, int $mailingRecipientId): HalResponse
     {
 
         $response =
@@ -50,7 +50,7 @@ class MailingRecipientsService extends AbstractService
      * @return HalResponseResourceIterator
      * @throws ApiException
      */
-    public function query($mailingId)
+    public function query(int $mailingId): HalResponseResourceIterator
     {
 
         $response =

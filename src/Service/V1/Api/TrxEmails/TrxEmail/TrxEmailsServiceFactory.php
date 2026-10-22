@@ -13,7 +13,7 @@ class TrxEmailsServiceFactory implements ServiceFactoryInterface
     /**
      * @inheritDoc
      */
-    public function create($dependencies = [])
+    public function create(array $dependencies = []): TrxEmailService
     {
 
         return new TrxEmailService(

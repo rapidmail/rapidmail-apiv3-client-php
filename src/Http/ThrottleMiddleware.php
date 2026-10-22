@@ -13,28 +13,28 @@ class ThrottleMiddleware
     /**
      *  Singleton instance
      *
-     * @var static
+     * @var static|null
      */
-    private static $instance;
+    private static ?self $instance = null;
 
     /**
      * Interval in seconds
      *
      * @var float
      */
-    private $interval;
+    private float $interval;
 
     /**
      * Number of requests per interval
      *
      * @var int
      */
-    private $requestsPerInterval;
+    private int $requestsPerInterval;
 
     /**
-     * @var int[]
+     * @var float[]
      */
-    private $timestampStack = [];
+    private array $timestampStack = [];
 
     /**
      * Constructor
@@ -42,7 +42,7 @@ class ThrottleMiddleware
      * @param float $interval Interval in seconds
      * @param int $requestsPerInterval
      */
-    private function __construct($interval, $requestsPerInterval)
+    private function __construct(float $interval, int $requestsPerInterval)
     {
 
         $this->interval = $interval;
@@ -56,7 +56,7 @@ class ThrottleMiddleware
      * @param int $requestsPerInterval
      * @return static
      */
-    public static function getInstance($interval, $requestsPerInterval)
+    public static function getInstance(float $interval, int $requestsPerInterval): self
     {
 
         if (static::$instance === null) {
@@ -72,7 +72,7 @@ class ThrottleMiddleware
      * @param callable $handler
      * @return callable
      */
-    public function __invoke(callable $handler)
+    public function __invoke(callable $handler): callable
     {
 
         return function (RequestInterface $request, array $options) use ($handler) {
@@ -86,7 +86,7 @@ class ThrottleMiddleware
     /**
      * Apply throttling when requests per interval being exceeded
      */
-    private function throttle()
+    private function throttle(): void
     {
 
         $now = microtime(true);
@@ -96,9 +96,7 @@ class ThrottleMiddleware
         $this->timestampStack = array_values(
             array_filter(
                 $this->timestampStack,
-                function ($last) use ($now) {
-                    return $now - $last < $this->interval;
-                }
+                fn($last) => $now - $last < $this->interval
             )
         );
 

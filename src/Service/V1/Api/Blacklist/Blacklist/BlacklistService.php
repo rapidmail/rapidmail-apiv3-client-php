@@ -21,10 +21,7 @@ use Rapidmail\ApiClient\Service\V1\Api\Blacklist\Blacklist\Parameter\ParameterFa
 class BlacklistService extends AbstractService
 {
 
-    /**
-     * @var ParameterFactory
-     */
-    private $parameterFactory;
+    private ParameterFactory $parameterFactory;
 
     /**
      * Constructor
@@ -45,7 +42,7 @@ class BlacklistService extends AbstractService
     /**
      * @inheritDoc
      */
-    protected function getResourcePath()
+    protected function getResourcePath(): string
     {
         return 'blacklist';
     }
@@ -53,7 +50,7 @@ class BlacklistService extends AbstractService
     /**
      * @return ParameterFactory
      */
-    public function params()
+    public function params(): ParameterFactory
     {
         return $this->parameterFactory;
     }
@@ -66,7 +63,7 @@ class BlacklistService extends AbstractService
      *
      * @throws ApiException
      */
-    public function query($filter = [])
+    public function query($filter = []): HalResponseResourceIterator
     {
 
         if (is_array($filter)) {
@@ -98,7 +95,7 @@ class BlacklistService extends AbstractService
      * @return HalResponse
      * @throws ApiException
      */
-    public function create($data = [])
+    public function create($data = []): HalResponse
     {
 
         if (is_string($data)) {
@@ -142,7 +139,7 @@ class BlacklistService extends AbstractService
      *
      * @throws ApiException
      */
-    public function get($blacklistId)
+    public function get(int $blacklistId): HalResponse
     {
 
         return $this->responseFactory->newHalResponse(
@@ -159,7 +156,7 @@ class BlacklistService extends AbstractService
      * @return bool
      * @throws ApiException
      */
-    public function delete($blacklistId)
+    public function delete(int $blacklistId): bool
     {
         return $this->_delete($blacklistId)->getStatusCode() == 204;
     }
@@ -174,7 +171,7 @@ class BlacklistService extends AbstractService
      * @return HalResponse
      * @throws ApiException
      */
-    public function import($data = [])
+    public function import($data = []): HalResponse
     {
 
         if (is_string($data) || $data instanceof \SplFileInfo) {

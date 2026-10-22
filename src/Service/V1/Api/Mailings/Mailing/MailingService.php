@@ -20,10 +20,7 @@ use Rapidmail\ApiClient\Service\V1\Api\Mailings\Mailing\Parameter\ParameterFacto
 class MailingService extends AbstractService
 {
 
-    /**
-     * @var ParameterFactory
-     */
-    protected $parameterFactory;
+    protected ParameterFactory $parameterFactory;
 
     /**
      * Constructor
@@ -44,7 +41,7 @@ class MailingService extends AbstractService
     /**
      * @inheritDoc
      */
-    protected function getResourcePath()
+    protected function getResourcePath(): string
     {
         return 'mailings';
     }
@@ -52,7 +49,7 @@ class MailingService extends AbstractService
     /**
      * @return ParameterFactory
      */
-    public function params()
+    public function params(): ParameterFactory
     {
         return $this->parameterFactory;
     }
@@ -65,7 +62,7 @@ class MailingService extends AbstractService
      *
      * @throws ApiException
      */
-    public function get($mailingId)
+    public function get(int $mailingId): HalResponse
     {
 
         return $this->responseFactory->newHalResponse(
@@ -83,7 +80,7 @@ class MailingService extends AbstractService
      *
      * @throws ApiException
      */
-    public function query($filter = [])
+    public function query($filter = []): HalResponseResourceIterator
     {
 
         if (is_array($filter)) {
@@ -116,7 +113,7 @@ class MailingService extends AbstractService
      *
      * @throws ApiException
      */
-    public function delete($mailingId)
+    public function delete(int $mailingId): bool
     {
         return $this->_delete($mailingId)->getStatusCode() == 204;
     }
@@ -129,7 +126,7 @@ class MailingService extends AbstractService
      *
      * @throws ApiException
      */
-    public function pause($mailingId)
+    public function pause(int $mailingId): bool
     {
         return $this
                 ->client
@@ -149,7 +146,7 @@ class MailingService extends AbstractService
      *
      * @throws ApiException
      */
-    public function cancel($mailingId, $reason)
+    public function cancel(int $mailingId, string $reason): bool
     {
         return $this
                 ->client
@@ -173,7 +170,7 @@ class MailingService extends AbstractService
      * @return HalResponse
      * @throws ApiException
      */
-    public function create($data = [])
+    public function create($data = []): HalResponse
     {
 
         if (is_array($data)) {

@@ -10,10 +10,7 @@ use Rapidmail\ApiClient\Exception\InvalidArgumentException;
 class GenericParameter implements ParameterInterface
 {
 
-    /**
-     * @var \ArrayObject
-     */
-    private $attributeStore;
+    private \ArrayObject $attributeStore;
 
     /**
      * Constructor
@@ -38,7 +35,7 @@ class GenericParameter implements ParameterInterface
      * @param mixed $value
      * @return static
      */
-    public function setAttribute($key, $value)
+    public function setAttribute(string $key, $value)
     {
 
         $keys = $this->getKnownAttributeKeys();
@@ -67,7 +64,7 @@ class GenericParameter implements ParameterInterface
      * @param string $key
      * @param mixed $value
      */
-    protected function setAttributeRaw($key, $value)
+    protected function setAttributeRaw(string $key, $value): void
     {
         $this->attributeStore->offsetSet($key, $value);
     }
@@ -75,12 +72,10 @@ class GenericParameter implements ParameterInterface
     /**
      * @inheritDoc
      */
-    public function toArray()
+    public function toArray(): array
     {
         return array_map(
-            function ($value) {
-                return $value instanceof ParameterInterface ? $value->toArray() : $value;
-            },
+            fn($value) => $value instanceof ParameterInterface ? $value->toArray() : $value,
             $this->attributeStore->getArrayCopy()
         );
     }
@@ -90,7 +85,7 @@ class GenericParameter implements ParameterInterface
      *
      * @return string[]
      */
-    protected function getKnownAttributeKeys()
+    protected function getKnownAttributeKeys(): array
     {
         return [];
     }
@@ -102,7 +97,7 @@ class GenericParameter implements ParameterInterface
      * @param string $format
      * @return string
      */
-    protected function stringifyDateTime($dateTime, $format = 'Y-m-d H:i:s')
+    protected function stringifyDateTime($dateTime, string $format = 'Y-m-d H:i:s'): string
     {
 
         if ($dateTime instanceof \DateTimeInterface) {

@@ -7,10 +7,7 @@ use Rapidmail\ApiClient\Service\Parameter\GenericParameter;
 class GenericParameterMock extends GenericParameter
 {
 
-    /**
-     * @var int
-     */
-    private $knownAttributeSetterCallCount = 0;
+    private int $knownAttributeSetterCallCount = 0;
 
     /**
      * @return int
@@ -25,7 +22,7 @@ class GenericParameterMock extends GenericParameter
      *
      * @return array
      */
-    public function getKnownAttributeKeys()
+    public function getKnownAttributeKeys(): array
     {
 
         return [
@@ -36,20 +33,9 @@ class GenericParameterMock extends GenericParameter
     }
 
     /**
-     * @param array $knownAttributeKeys
-     * @return GenericParameterMock
-     */
-    public function setKnownAttributeKeys(array $knownAttributeKeys)
-    {
-        $this->knownAttributeKeys = $knownAttributeKeys;
-
-        return $this;
-    }
-
-    /**
      * @inheritDoc
      */
-    public function stringifyDateTime($dateTime, $format = 'Y-m-d H:i:s')
+    public function stringifyDateTime($dateTime, string $format = 'Y-m-d H:i:s'): string
     {
         return parent::stringifyDateTime($dateTime, $format);
     }

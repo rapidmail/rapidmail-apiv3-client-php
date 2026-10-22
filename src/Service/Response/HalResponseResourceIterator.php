@@ -10,25 +10,13 @@ use Rapidmail\ApiClient\Util\CallbackIterator;
 class HalResponseResourceIterator implements ResponseInterface, \Iterator, \Countable
 {
 
-    /**
-     * @var int
-     */
-    private $currentIndex = 0;
+    private int $currentIndex = 0;
 
-    /**
-     * @var null|\ArrayIterator
-     */
-    private $currentResourceIterator;
+    private ?\Iterator $currentResourceIterator = null;
 
-    /**
-     * @var HalResponsePaginationIterator
-     */
-    private $responseCollection;
+    private HalResponsePaginationIterator $responseCollection;
 
-    /**
-     * @var string
-     */
-    private $embeddedResourcePathKey;
+    private string $embeddedResourcePathKey;
 
     /**
      * Constructor
@@ -38,7 +26,7 @@ class HalResponseResourceIterator implements ResponseInterface, \Iterator, \Coun
      */
     public function __construct(
         HalResponsePaginationIterator $responseCollection,
-        $embeddedResourcePathKey
+        string $embeddedResourcePathKey
     ) {
         $this->responseCollection = $responseCollection;
         $this->embeddedResourcePathKey = $embeddedResourcePathKey;
@@ -56,8 +44,7 @@ class HalResponseResourceIterator implements ResponseInterface, \Iterator, \Coun
     /**
      * @inheritDoc
      */
-    #[\ReturnTypeWillChange]
-    public function next()
+    public function next(): void
     {
 
         $this->currentResourceIterator->next();
@@ -74,8 +61,7 @@ class HalResponseResourceIterator implements ResponseInterface, \Iterator, \Coun
     /**
      * @inheritDoc
      */
-    #[\ReturnTypeWillChange]
-    public function key()
+    public function key(): int
     {
         return $this->currentIndex;
     }
@@ -83,8 +69,7 @@ class HalResponseResourceIterator implements ResponseInterface, \Iterator, \Coun
     /**
      * @inheritDoc
      */
-    #[\ReturnTypeWillChange]
-    public function valid()
+    public function valid(): bool
     {
         return $this->currentResourceIterator !== null && $this->currentResourceIterator->valid();
     }
@@ -92,8 +77,7 @@ class HalResponseResourceIterator implements ResponseInterface, \Iterator, \Coun
     /**
      * @inheritDoc
      */
-    #[\ReturnTypeWillChange]
-    public function rewind()
+    public function rewind(): void
     {
         $this->currentIndex = 0;
         $this->responseCollection->rewind();
@@ -103,8 +87,7 @@ class HalResponseResourceIterator implements ResponseInterface, \Iterator, \Coun
     /**
      * @inheritDoc
      */
-    #[\ReturnTypeWillChange]
-    public function count()
+    public function count(): int
     {
         return $this->responseCollection->totalCount();
     }
@@ -112,7 +95,7 @@ class HalResponseResourceIterator implements ResponseInterface, \Iterator, \Coun
     /**
      * @return null|\Iterator
      */
-    private function createIteratorFromInnerResource()
+    private function createIteratorFromInnerResource(): ?\Iterator
     {
 
         if (!$this->responseCollection->valid()) {
@@ -142,15 +125,13 @@ class HalResponseResourceIterator implements ResponseInterface, \Iterator, \Coun
     /**
      * @return array
      */
-    protected function toArray()
+    protected function toArray(): array
     {
 
         return iterator_to_array(
             new CallbackIterator(
                 $this,
-                function ($item) {
-                    return $item instanceof HalResponse ? $item->toArray() : $item;
-                }
+                fn($item) => $item instanceof HalResponse ? $item->toArray() : $item
             )
         );
 
@@ -159,7 +140,7 @@ class HalResponseResourceIterator implements ResponseInterface, \Iterator, \Coun
     /**
      * @inheritDoc
      */
-    public function __debugInfo()
+    public function __debugInfo(): array
     {
         return $this->toArray();
     }
@@ -167,9 +148,9 @@ class HalResponseResourceIterator implements ResponseInterface, \Iterator, \Coun
     /**
      * @inheritDoc
      */
-    public function __toString()
+    public function __toString(): string
     {
-        return (string)print_r($this->toArray(), true);
+        return print_r($this->toArray(), true);
     }
 
 }

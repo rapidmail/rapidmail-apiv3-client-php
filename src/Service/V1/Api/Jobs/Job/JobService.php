@@ -15,7 +15,7 @@ class JobService extends AbstractService
     /**
      * @inheritDoc
      */
-    protected function getResourcePath()
+    protected function getResourcePath(): string
     {
         return 'jobs';
     }
@@ -27,7 +27,7 @@ class JobService extends AbstractService
      * @return HalResponse
      * @throws ApiException
      */
-    public function get($jobId)
+    public function get(int $jobId): HalResponse
     {
 
         return $this

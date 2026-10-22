@@ -19,6 +19,6 @@ interface HttpClientInterface
      * @return ResponseInterface
      * @throws ApiException
      */
-    public function request($method, $uri, array $options = []);
+    public function request(string $method, $uri, array $options = []): ResponseInterface;
 
 }

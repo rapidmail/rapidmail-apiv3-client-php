@@ -13,7 +13,7 @@ class BlacklistServiceFactory implements ServiceFactoryInterface
     /**
      * @inheritDoc
      */
-    public function create($dependencies = [])
+    public function create(array $dependencies = []): BlacklistService
     {
 
         return new BlacklistService(

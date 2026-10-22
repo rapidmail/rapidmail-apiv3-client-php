@@ -10,7 +10,7 @@ class BlacklistCreateParam extends GenericParameter
     /**
      * @inheritDoc
      */
-    protected function getKnownAttributeKeys()
+    protected function getKnownAttributeKeys(): array
     {
 
         return [

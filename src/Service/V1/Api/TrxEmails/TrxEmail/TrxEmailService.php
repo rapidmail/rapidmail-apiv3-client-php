@@ -18,10 +18,7 @@ use Rapidmail\ApiClient\Service\V1\Api\TrxEmails\TrxEmail\Parameter\TrxEmailQuer
 class TrxEmailService extends AbstractService
 {
 
-    /**
-     * @var ParameterFactory
-     */
-    private $parameterFactory;
+    private ParameterFactory $parameterFactory;
 
     /**
      * Constructor
@@ -42,7 +39,7 @@ class TrxEmailService extends AbstractService
     /**
      * @return ParameterFactory
      */
-    public function params()
+    public function params(): ParameterFactory
     {
         return $this->parameterFactory;
     }
@@ -50,7 +47,7 @@ class TrxEmailService extends AbstractService
     /**
      * @inheritDoc
      */
-    protected function getResourcePath()
+    protected function getResourcePath(): string
     {
         return 'trx/emails';
     }
@@ -62,7 +59,7 @@ class TrxEmailService extends AbstractService
      * @return HalResponseResourceIterator
      * @throws ApiException
      */
-    public function query($filter = [])
+    public function query($filter = []): HalResponseResourceIterator
     {
 
         if (is_array($filter)) {
@@ -94,7 +91,7 @@ class TrxEmailService extends AbstractService
      * @return HalResponse
      * @throws ApiException
      */
-    public function get($hash)
+    public function get(string $hash): HalResponse
     {
 
         return $this

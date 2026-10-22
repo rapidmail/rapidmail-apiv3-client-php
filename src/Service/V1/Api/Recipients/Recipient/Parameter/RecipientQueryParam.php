@@ -28,7 +28,7 @@ class RecipientQueryParam extends GenericParameter
     /**
      * @inheritDoc
      */
-    protected function getKnownAttributeKeys()
+    protected function getKnownAttributeKeys(): array
     {
 
         return [
@@ -105,7 +105,7 @@ class RecipientQueryParam extends GenericParameter
     public function setSortBy($sortBy)
     {
 
-        if (!in_array($sortBy, static::SORT_BY_VALUES)) {
+        if (!in_array($sortBy, static::SORT_BY_VALUES, true)) {
 
             throw new InvalidArgumentException(
                 'Invalid sort by provided. Must be one of: ' . implode(', ', static::SORT_BY_VALUES)
@@ -128,7 +128,7 @@ class RecipientQueryParam extends GenericParameter
     public function setSortOrder($sortOrder)
     {
 
-        if (!in_array($sortOrder, static::SORT_ORDER_VALUES)) {
+        if (!in_array($sortOrder, static::SORT_ORDER_VALUES, true)) {
 
             throw new InvalidArgumentException(
                 'Invalid sort order provided. Must be one of: ' . implode(', ', static::SORT_ORDER_VALUES)

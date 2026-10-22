@@ -4,6 +4,14 @@ API client written in PHP providing access to the current version of the [rapidm
 
 [![CI Status](https://github.com/rapidmail/rapidmail-apiv3-client-php/workflows/CI/badge.svg)](https://github.com/rapidmail/rapidmail-apiv3-client-php/actions)
 [![Latest Stable Version](https://poser.pugx.org/rapidmail/rapidmail-apiv3-client-php/v/stable)](https://packagist.org/packages/rapidmail/rapidmail-apiv3-client-php)
+## Requirements
+
+* PHP 7.4 or later (PHP 8.x is supported)
+* PHP extensions `json` and `fileinfo`
+* [Guzzle](https://github.com/guzzle/guzzle) 6.3, 7 or 8
+
+PHP versions prior to 7.4 are supported by the 1.x releases of this client only.
+
 ## Installation With Composer
 
 Preferred installation method is to use the [Composer](https://getcomposer.org) dependency manager. 

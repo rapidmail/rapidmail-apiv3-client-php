@@ -16,7 +16,7 @@ class ParameterFactory
      * @param array $input
      * @return GenericParameter
      */
-    public function newGenericParameter(array $input = [])
+    public function newGenericParameter(array $input = []): GenericParameter
     {
         return new GenericParameter($input);
     }
@@ -27,7 +27,7 @@ class ParameterFactory
      * @param array $input
      * @return MailingQueryParam
      */
-    public function newQueryParam(array $input = [])
+    public function newQueryParam(array $input = []): MailingQueryParam
     {
         return new MailingQueryParam($input);
     }
@@ -38,7 +38,7 @@ class ParameterFactory
      * @param array $input
      * @return MailingCreateParam
      */
-    public function newCreateParam(array $input = [])
+    public function newCreateParam(array $input = []): MailingCreateParam
     {
         return new MailingCreateParam($this, $input);
     }
@@ -49,7 +49,7 @@ class ParameterFactory
      * @param array $input
      * @return MailingCreateParamFileAttr
      */
-    public function newMailingCreateParamFileAttr(array $input = [])
+    public function newMailingCreateParamFileAttr(array $input = []): MailingCreateParamFileAttr
     {
         return new MailingCreateParamFileAttr($input);
     }
@@ -60,7 +60,7 @@ class ParameterFactory
      * @param array $input
      * @return MailingCreateParamDestinationAttr
      */
-    public function newMailingCreateParamDestinationAttr(array $input = [])
+    public function newMailingCreateParamDestinationAttr(array $input = []): MailingCreateParamDestinationAttr
     {
         return new MailingCreateParamDestinationAttr($input);
     }

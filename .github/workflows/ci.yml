@@ -16,11 +16,6 @@ jobs:
       fail-fast: false
       matrix:
         php-version:
-          - 5.6
-          - 7.0
-          - 7.1
-          - 7.2
-          - 7.3
           - 7.4
           - 8.0
           - 8.1
@@ -38,17 +33,6 @@ jobs:
         dependencies:
           - lowest
           - highest
-
-        # Guzzle 7 requires PHP >= 7.2.5, Guzzle 8 requires PHP >= 7.4
-        exclude:
-          - { guzzle-version: "^7.0", php-version: 5.6 }
-          - { guzzle-version: "^7.0", php-version: 7.0 }
-          - { guzzle-version: "^7.0", php-version: 7.1 }
-          - { guzzle-version: "^8.0", php-version: 5.6 }
-          - { guzzle-version: "^8.0", php-version: 7.0 }
-          - { guzzle-version: "^8.0", php-version: 7.1 }
-          - { guzzle-version: "^8.0", php-version: 7.2 }
-          - { guzzle-version: "^8.0", php-version: 7.3 }
 
     steps:
       - name: "Checkout"
@@ -76,9 +60,7 @@ jobs:
           restore-keys: "php-${{ matrix.php-version }}-guzzle-${{ matrix.guzzle-version }}-${{ matrix.dependencies }}"
 
       # Older Guzzle releases have security advisories and Composer >= 2.9 refuses to install them.
-      # Composer 2.2 (installed for PHP < 7.2.5) neither blocks advisories nor knows this setting.
       - name: "Allow Guzzle releases with security advisories"
-        if: ${{ matrix.php-version >= 7.2 }}
         run: 'composer config --json policy.advisories.ignore ''["guzzlehttp/guzzle", "guzzlehttp/psr7", "guzzlehttp/promises"]'''
 
       - name: "Pin Guzzle major version"

@@ -3,7 +3,7 @@
 namespace Rapidmail\ApiClientTests\Api\Util;
 
 use Rapidmail\ApiClient\Util\CallbackIterator;
-use Yoast\PHPUnitPolyfills\TestCases\TestCase;
+use PHPUnit\Framework\TestCase;
 
 class CallbackIteratorTest extends TestCase
 {

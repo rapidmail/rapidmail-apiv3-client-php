@@ -6,7 +6,7 @@ use GuzzleHttp\Client;
 use Rapidmail\ApiClient\Http\HttpClientFacade;
 use Rapidmail\ApiClient\Http\HttpClientFactory;
 use Rapidmail\ApiClient\Http\HttpClientInterface;
-use Yoast\PHPUnitPolyfills\TestCases\TestCase;
+use PHPUnit\Framework\TestCase;
 
 class HttpClientFactoryTest extends TestCase
 {

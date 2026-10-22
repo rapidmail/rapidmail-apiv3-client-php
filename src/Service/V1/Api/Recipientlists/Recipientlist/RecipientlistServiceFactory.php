@@ -13,7 +13,7 @@ class RecipientlistServiceFactory implements ServiceFactoryInterface
     /**
      * @inheritDoc
      */
-    public function create($dependencies = [])
+    public function create(array $dependencies = []): RecipientlistService
     {
 
         return new RecipientlistService(

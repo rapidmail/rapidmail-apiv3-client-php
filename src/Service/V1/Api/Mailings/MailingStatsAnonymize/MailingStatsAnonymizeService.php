@@ -14,7 +14,7 @@ class MailingStatsAnonymizeService extends AbstractService
     /**
      * @inheritDoc
      */
-    protected function getResourcePath()
+    protected function getResourcePath(): string
     {
         return 'mailings';
     }
@@ -28,7 +28,7 @@ class MailingStatsAnonymizeService extends AbstractService
      * @return bool
      * @throws ApiException
      */
-    public function anonymize($mailingId)
+    public function anonymize(int $mailingId): bool
     {
         return $this
                 ->client

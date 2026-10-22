@@ -8,10 +8,7 @@ use Rapidmail\ApiClient\Service\Parameter\GenericParameter;
 class RecipientImportParam extends GenericParameter
 {
 
-    /**
-     * @var ParameterFactory
-     */
-    protected $parameterFactory;
+    protected ParameterFactory $parameterFactory;
 
     /**
      * Constructor
@@ -28,7 +25,7 @@ class RecipientImportParam extends GenericParameter
     /**
      * @inheritDoc
      */
-    protected function getKnownAttributeKeys()
+    protected function getKnownAttributeKeys(): array
     {
         return [
             'recipientlist_id',

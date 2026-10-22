@@ -17,7 +17,7 @@ class ResponseFactory
      * @return HalResponse
      * @throws ApiException
      */
-    public function newHalResponse(HttpClientInterface $client, HttpResponseInterface $response)
+    public function newHalResponse(HttpClientInterface $client, HttpResponseInterface $response): HalResponse
     {
         return new HalResponse($client, $this, $this->decodeResponse($response));
     }
@@ -33,9 +33,9 @@ class ResponseFactory
      */
     public function newHalResponseResourceIterator(
         HttpClientInterface $client,
-        $resourceKey,
+        string $resourceKey,
         HttpResponseInterface $response
-    ) {
+    ): HalResponseResourceIterator {
 
         return new HalResponseResourceIterator(
             new HalResponsePaginationIterator(
@@ -47,11 +47,13 @@ class ResponseFactory
     }
 
     /**
-     * @inheritDoc
+     * @param HttpResponseInterface $response
+     * @return array
+     * @throws ApiException
      */
-    protected function decodeResponse(HttpResponseInterface $response)
+    protected function decodeResponse(HttpResponseInterface $response): array
     {
-        $decodedResponse = json_decode($response->getBody(), true);
+        $decodedResponse = json_decode((string)$response->getBody(), true);
 
         if (json_last_error() !== JSON_ERROR_NONE) {
             throw new ApiException(json_last_error_msg());

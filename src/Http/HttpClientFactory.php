@@ -15,7 +15,7 @@ class HttpClientFactory
      * @param array $config
      * @return HttpClientInterface
      */
-    public function createClient(array $config = [])
+    public function createClient(array $config = []): HttpClientInterface
     {
 
         $stack = HandlerStack::create();
@@ -51,7 +51,7 @@ class HttpClientFactory
     /**
      * @return string
      */
-    private function buildUserAgentString()
+    private function buildUserAgentString(): string
     {
 
         return sprintf(

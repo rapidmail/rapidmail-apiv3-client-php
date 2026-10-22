@@ -5,15 +5,9 @@ namespace Rapidmail\ApiClient\Util;
 class CallbackIterator implements \Iterator
 {
 
-    /**
-     * @var \Iterator
-     */
-    private $iterator;
+    private \Iterator $iterator;
 
-    /**
-     * @var \Closure
-     */
-    private $callback;
+    private \Closure $callback;
 
     /**
      * Constructor
@@ -34,17 +28,14 @@ class CallbackIterator implements \Iterator
     public function current()
     {
 
-        return $this->callback->__invoke(
-            $this->iterator->current()
-        );
+        return ($this->callback)($this->iterator->current());
 
     }
 
     /**
      * @inheritDoc
      */
-    #[\ReturnTypeWillChange]
-    public function next()
+    public function next(): void
     {
         $this->iterator->next();
     }
@@ -61,8 +52,7 @@ class CallbackIterator implements \Iterator
     /**
      * @inheritDoc
      */
-    #[\ReturnTypeWillChange]
-    public function valid()
+    public function valid(): bool
     {
         return $this->iterator->valid();
     }
@@ -70,8 +60,7 @@ class CallbackIterator implements \Iterator
     /**
      * @inheritDoc
      */
-    #[\ReturnTypeWillChange]
-    public function rewind()
+    public function rewind(): void
     {
         $this->iterator->rewind();
     }

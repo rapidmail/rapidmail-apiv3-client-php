@@ -15,7 +15,7 @@ class MailingStatsService extends AbstractService
     /**
      * @inheritDoc
      */
-    protected function getResourcePath()
+    protected function getResourcePath(): string
     {
         return 'mailings';
     }
@@ -27,7 +27,7 @@ class MailingStatsService extends AbstractService
      * @return HalResponse
      * @throws ApiException
      */
-    public function get($mailingId)
+    public function get(int $mailingId): HalResponse
     {
 
         $response = $this->client->request(

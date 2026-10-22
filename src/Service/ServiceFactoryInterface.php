@@ -11,6 +11,6 @@ interface ServiceFactoryInterface
      * @param array $dependencies Optional list of dependencies
      * @return ServiceInterface
      */
-    public function create($dependencies = []);
+    public function create(array $dependencies = []): ServiceInterface;
 
 }

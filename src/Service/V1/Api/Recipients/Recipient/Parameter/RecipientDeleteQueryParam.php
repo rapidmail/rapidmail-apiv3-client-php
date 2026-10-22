@@ -10,7 +10,7 @@ class RecipientDeleteQueryParam extends GenericParameter
     /**
      * @inheritDoc
      */
-    protected function getKnownAttributeKeys()
+    protected function getKnownAttributeKeys(): array
     {
         return [
             'track_unsubscription'

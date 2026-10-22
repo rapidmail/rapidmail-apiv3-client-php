@@ -11,7 +11,7 @@ class ParameterFactory
      * @param array $input
      * @return BlacklistQueryParam
      */
-    public function newQueryParam(array $input = [])
+    public function newQueryParam(array $input = []): BlacklistQueryParam
     {
         return new BlacklistQueryParam($input);
     }
@@ -22,7 +22,7 @@ class ParameterFactory
      * @param array $input
      * @return BlacklistCreateParam
      */
-    public function newCreateParam(array $input = [])
+    public function newCreateParam(array $input = []): BlacklistCreateParam
     {
         return new BlacklistCreateParam($input);
     }
@@ -32,7 +32,7 @@ class ParameterFactory
      * @param array $input
      * @return BlacklistImportParam
      */
-    public function newImportParam(array $input = [])
+    public function newImportParam(array $input = []): BlacklistImportParam
     {
         return new BlacklistImportParam($this, $input);
     }
@@ -43,7 +43,7 @@ class ParameterFactory
      * @param array $input
      * @return BlacklistImportParamFileAttr
      */
-    public function newImportParamFileAttr(array $input = [])
+    public function newImportParamFileAttr(array $input = []): BlacklistImportParamFileAttr
     {
         return new BlacklistImportParamFileAttr($input);
     }

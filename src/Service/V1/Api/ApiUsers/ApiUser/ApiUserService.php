@@ -20,10 +20,7 @@ use Rapidmail\ApiClient\Service\V1\Api\ApiUsers\ApiUser\Parameter\ParameterFacto
 class ApiUserService extends AbstractService
 {
 
-    /**
-     * @var ParameterFactory
-     */
-    private $parameterFactory;
+    private ParameterFactory $parameterFactory;
 
     /**
      * Constructor
@@ -44,7 +41,7 @@ class ApiUserService extends AbstractService
     /**
      * @return ParameterFactory
      */
-    public function params()
+    public function params(): ParameterFactory
     {
         return $this->parameterFactory;
     }
@@ -52,7 +49,7 @@ class ApiUserService extends AbstractService
     /**
      * @inheritDoc
      */
-    protected function getResourcePath()
+    protected function getResourcePath(): string
     {
         return 'apiusers';
     }
@@ -64,7 +61,7 @@ class ApiUserService extends AbstractService
      * @return HalResponseResourceIterator
      * @throws ApiException
      */
-    public function query($filter = [])
+    public function query($filter = []): HalResponseResourceIterator
     {
 
         if (is_array($filter)) {
@@ -88,11 +85,11 @@ class ApiUserService extends AbstractService
     /**
      * Get details about an API user
      *
-     * @param string
+     * @param int $apiUserId
      * @return HalResponse
      * @throws ApiException
      */
-    public function get($apiUserId)
+    public function get(int $apiUserId): HalResponse
     {
 
         return $this->responseFactory->newHalResponse(
@@ -110,7 +107,7 @@ class ApiUserService extends AbstractService
      *
      * @throws ApiException
      */
-    public function delete($apiUserId)
+    public function delete(int $apiUserId): bool
     {
         return $this->_delete($apiUserId)->getStatusCode() == 204;
     }
@@ -124,7 +121,7 @@ class ApiUserService extends AbstractService
      * @return HalResponse
      * @throws ApiException
      */
-    private function upsert($method, $uri, $data)
+    private function upsert(string $method, string $uri, $data): HalResponse
     {
 
         if (is_array($data)) {
@@ -160,7 +157,7 @@ class ApiUserService extends AbstractService
      * @return HalResponse
      * @throws ApiException
      */
-    public function create($data = [])
+    public function create($data = []): HalResponse
     {
 
         return $this->upsert(
@@ -179,7 +176,7 @@ class ApiUserService extends AbstractService
      * @return HalResponse
      * @throws ApiException
      */
-    public function update($apiUserId, $data = [])
+    public function update(int $apiUserId, $data = []): HalResponse
     {
 
         return $this->upsert(

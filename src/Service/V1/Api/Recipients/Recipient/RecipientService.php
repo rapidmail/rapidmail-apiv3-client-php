@@ -24,10 +24,7 @@ use Rapidmail\ApiClient\Service\V1\Api\Recipients\Recipient\Parameter\RecipientQ
 class RecipientService extends AbstractService
 {
 
-    /**
-     * @var ParameterFactory
-     */
-    protected $parameterFactory;
+    protected ParameterFactory $parameterFactory;
 
     /**
      * Constructor
@@ -48,7 +45,7 @@ class RecipientService extends AbstractService
     /**
      * @inheritDoc
      */
-    protected function getResourcePath()
+    protected function getResourcePath(): string
     {
         return 'recipients';
     }
@@ -56,7 +53,7 @@ class RecipientService extends AbstractService
     /**
      * @return ParameterFactory
      */
-    public function params()
+    public function params(): ParameterFactory
     {
         return $this->parameterFactory;
     }
@@ -69,7 +66,7 @@ class RecipientService extends AbstractService
      *
      * @throws ApiException
      */
-    public function get($recipientId)
+    public function get(int $recipientId): HalResponse
     {
 
         return $this->responseFactory->newHalResponse(
@@ -87,7 +84,7 @@ class RecipientService extends AbstractService
      *
      * @throws ApiException
      */
-    public function query($filter = [])
+    public function query($filter = []): HalResponseResourceIterator
     {
 
         if (is_numeric($filter)) {
@@ -128,7 +125,7 @@ class RecipientService extends AbstractService
      * @return HalResponse
      * @throws ApiException
      */
-    public function create($data = [], $query = [])
+    public function create($data = [], $query = []): HalResponse
     {
 
         $method = 'POST';
@@ -146,7 +143,7 @@ class RecipientService extends AbstractService
      * @return HalResponse
      * @throws ApiException
      */
-    public function update($recipientId, $data = [])
+    public function update(int $recipientId, $data = []): HalResponse
     {
 
         $method = 'PATCH';
@@ -167,7 +164,7 @@ class RecipientService extends AbstractService
      * @return bool
      * @throws ApiException
      */
-    public function delete($recipientId, $query = [])
+    public function delete(int $recipientId, $query = []): bool
     {
 
         if (is_array($query)) {
@@ -205,7 +202,7 @@ class RecipientService extends AbstractService
      * @return HalResponse
      * @throws ApiException
      */
-    private function upsert($method, $uri, $data, $query)
+    private function upsert(string $method, string $uri, $data, $query): HalResponse
     {
 
         if (is_array($data)) {
@@ -256,7 +253,7 @@ class RecipientService extends AbstractService
      * @return HalResponse
      * @throws ApiException
      */
-    public function import($data = [], $query = [])
+    public function import($data = [], $query = []): HalResponse
     {
 
         if (is_array($data)) {

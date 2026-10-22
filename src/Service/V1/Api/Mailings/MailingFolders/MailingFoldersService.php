@@ -12,7 +12,7 @@ class MailingFoldersService extends AbstractService
     /**
      * @inheritDoc
      */
-    protected function getResourcePath()
+    protected function getResourcePath(): string
     {
         return 'mailings';
     }
@@ -23,7 +23,7 @@ class MailingFoldersService extends AbstractService
      * @return array
      * @throws ApiException
      */
-    public function fetchAll()
+    public function fetchAll(): array
     {
 
         $response = $this->client->request(
@@ -51,7 +51,7 @@ class MailingFoldersService extends AbstractService
      * @return stdClass
      * @throws ApiException
      */
-    public function create($folderName)
+    public function create(string $folderName)
     {
         $response = $this->client->request(
             'POST',
@@ -78,7 +78,7 @@ class MailingFoldersService extends AbstractService
      * @param int $folderId
      * @throws ApiException
      */
-    public function delete($folderId)
+    public function delete(int $folderId): void
     {
         $response = $this->client->request(
             'DELETE',
@@ -94,7 +94,7 @@ class MailingFoldersService extends AbstractService
      * @return stdClass
      * @throws ApiException
      */
-    public function rename($folderId, $newFolderName)
+    public function rename(int $folderId, string $newFolderName)
     {
         $response = $this->client->request(
             'PATCH',
@@ -123,7 +123,7 @@ class MailingFoldersService extends AbstractService
      * @return stdClass
      * @throws ApiException
      */
-    public function assign($mailingId, $folderId)
+    public function assign(int $mailingId, ?int $folderId)
     {
         $response = $this->client->request(
             'PUT',
@@ -148,11 +148,10 @@ class MailingFoldersService extends AbstractService
      * Remove folder assignment of mailing
      *
      * @param int $mailingId
-     * @param int $folderId
      * @return stdClass
      * @throws ApiException
      */
-    public function removeAssignment($mailingId)
+    public function removeAssignment(int $mailingId)
     {
         return $this->assign($mailingId, null);
     }

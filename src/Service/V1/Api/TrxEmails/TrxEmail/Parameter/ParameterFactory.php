@@ -11,7 +11,7 @@ class ParameterFactory
      * @param array $input
      * @return TrxEmailQueryParam
      */
-    public function newQueryParam(array $input = [])
+    public function newQueryParam(array $input = []): TrxEmailQueryParam
     {
         return new TrxEmailQueryParam($input);
     }

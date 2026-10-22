@@ -3,49 +3,37 @@
 namespace Rapidmail\ApiClientTests\Mock;
 
 use GuzzleHttp\Psr7\Response;
+use Psr\Http\Message\ResponseInterface;
 use Rapidmail\ApiClient\Http\HttpClientInterface;
 
 class HttpClientMock implements HttpClientInterface
 {
 
-    /**
-     * @var Response
-     */
-    private $expectedResponse;
+    private Response $expectedResponse;
 
-    /**
-     * @var string|null
-     */
-    private $lastMethod;
+    private ?string $lastMethod = null;
 
     /**
      * @var string|null
      */
     private $lastUri;
 
-    /**
-     * @var array|null
-     */
-    private $lastOptions;
+    private ?array $lastOptions = null;
 
     /**
      * Constructor
      *
-     * @param Response $expectedResponse
+     * @param Response|null $expectedResponse
      */
-    public function __construct(Response $expectedResponse = null)
+    public function __construct(?Response $expectedResponse = null)
     {
-
-        $this->expectedResponse = empty($expectedResponse)
-            ? new Response()
-            : $expectedResponse;
-
+        $this->expectedResponse = $expectedResponse ?? new Response();
     }
 
     /**
      * @inheritDoc
      */
-    public function request($method, $uri, array $options = [])
+    public function request(string $method, $uri, array $options = []): ResponseInterface
     {
 
         $this->lastMethod = $method;
