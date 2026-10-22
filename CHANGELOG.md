@@ -14,11 +14,7 @@ declarations as well as arrow functions.
 - PHPUnit 9.6.33 is now required for development; `yoast/phpunit-polyfills` was dropped.
 
 ### Upgrading from 1.x
-- Method signatures now carry native parameter and return types. If you extend or implement classes or interfaces of
-this library (e.g. `HttpClientInterface`, `ServiceFactoryInterface`, `ParameterInterface`, `ResponseFactory` or one of
-the services or parameter classes), add matching type declarations to your implementations.
-- Arguments of the wrong type now raise a `TypeError` instead of being passed on to the API. Numeric strings are still
-accepted where integers are expected, unless your code uses `declare(strict_types=1)`.
+See [UPGRADING.md](UPGRADING.md).
 
 ## [1.1.10]
 - Fix compatibility with earlier PHP versions.

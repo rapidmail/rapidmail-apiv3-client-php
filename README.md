@@ -10,7 +10,7 @@ API client written in PHP providing access to the current version of the [rapidm
 * PHP extensions `json` and `fileinfo`
 * [Guzzle](https://github.com/guzzle/guzzle) 7.15.2+ or 8.0.1+
 
-PHP versions prior to 7.4 are supported by the 1.x releases of this client only.
+PHP versions prior to 7.4 are supported by the 1.x releases of this client only. Upgrading from 1.x? See [UPGRADING.md](UPGRADING.md).
 
 ## Installation With Composer
 
