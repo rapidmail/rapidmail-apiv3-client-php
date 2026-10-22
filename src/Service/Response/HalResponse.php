@@ -19,10 +19,6 @@ class HalResponse implements ResponseInterface, \ArrayAccess, \IteratorAggregate
 
     /**
      * Constructor
-     *
-     * @param HttpClientInterface $client
-     * @param ResponseFactory $responseFactory
-     * @param array $data
      */
     public function __construct(HttpClientInterface $client, ResponseFactory $responseFactory, array $data = [])
     {
@@ -74,9 +70,6 @@ class HalResponse implements ResponseInterface, \ArrayAccess, \IteratorAggregate
         throw new NotImplementedException('Write access is not implemented for ' . static::class);
     }
 
-    /**
-     * @return array
-     */
     public function toArray(): array
     {
 
@@ -150,7 +143,6 @@ class HalResponse implements ResponseInterface, \ArrayAccess, \IteratorAggregate
     /**
      * Navigate Hal links
      *
-     * @param string $target
      * @return HalResponse|null
      * @throws ApiException
      */

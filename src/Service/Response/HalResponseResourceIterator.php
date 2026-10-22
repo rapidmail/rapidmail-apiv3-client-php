@@ -20,9 +20,6 @@ class HalResponseResourceIterator implements ResponseInterface, \Iterator, \Coun
 
     /**
      * Constructor
-     *
-     * @param HalResponsePaginationIterator $responseCollection
-     * @param string $embeddedResourcePathKey
      */
     public function __construct(
         HalResponsePaginationIterator $responseCollection,
@@ -92,9 +89,6 @@ class HalResponseResourceIterator implements ResponseInterface, \Iterator, \Coun
         return $this->responseCollection->totalCount();
     }
 
-    /**
-     * @return null|\Iterator
-     */
     private function createIteratorFromInnerResource(): ?\Iterator
     {
 
@@ -122,9 +116,6 @@ class HalResponseResourceIterator implements ResponseInterface, \Iterator, \Coun
 
     }
 
-    /**
-     * @return array
-     */
     protected function toArray(): array
     {
 

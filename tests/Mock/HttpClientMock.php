@@ -22,8 +22,6 @@ class HttpClientMock implements HttpClientInterface
 
     /**
      * Constructor
-     *
-     * @param Response|null $expectedResponse
      */
     public function __construct(?Response $expectedResponse = null)
     {
@@ -47,7 +45,6 @@ class HttpClientMock implements HttpClientInterface
     /**
      * Sets the expected Response
      *
-     * @param Response $expectedResponse
      * @return HttpClientMock
      */
     public function setExpectedResponse(Response $expectedResponse)

@@ -12,9 +12,6 @@ class ResponseFactory
     /**
      * Returns a new HalResponse instance
      *
-     * @param HttpClientInterface $client
-     * @param HttpResponseInterface $response
-     * @return HalResponse
      * @throws ApiException
      */
     public function newHalResponse(HttpClientInterface $client, HttpResponseInterface $response): HalResponse
@@ -25,10 +22,6 @@ class ResponseFactory
     /**
      * Returns a new HalResponseResourceIterator to transparently iterate all nested resources within a paged result
      *
-     * @param HttpClientInterface $client
-     * @param string $resourceKey
-     * @param HttpResponseInterface $response
-     * @return HalResponseResourceIterator
      * @throws ApiException
      */
     public function newHalResponseResourceIterator(
@@ -47,8 +40,6 @@ class ResponseFactory
     }
 
     /**
-     * @param HttpResponseInterface $response
-     * @return array
      * @throws ApiException
      */
     protected function decodeResponse(HttpResponseInterface $response): array

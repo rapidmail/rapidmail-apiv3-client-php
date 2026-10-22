@@ -25,8 +25,6 @@ class MailingCreateParamDestinationAttr extends GenericParameter
 
     /**
      * Constructor
-     *
-     * @param array $attributes
      */
     public function __construct(array $attributes = [])
     {

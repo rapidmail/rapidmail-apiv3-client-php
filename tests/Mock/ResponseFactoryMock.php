@@ -19,7 +19,6 @@ class ResponseFactoryMock extends ResponseFactory
     private ?HalResponseResourceIterator $expectedHalResourceIterator = null;
 
     /**
-     * @param HalResponse $expectedHalResponse
      * @return ResponseFactoryMock
      */
     public function setExpectedHalResponse(HalResponse $expectedHalResponse)
@@ -30,7 +29,6 @@ class ResponseFactoryMock extends ResponseFactory
     }
 
     /**
-     * @param HalResponseResourceIterator $expectedHalResourceIterator
      * @return ResponseFactoryMock
      */
     public function setExpectedHalResourceIterator(HalResponseResourceIterator $expectedHalResourceIterator)

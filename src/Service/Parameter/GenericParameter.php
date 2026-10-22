@@ -14,8 +14,6 @@ class GenericParameter implements ParameterInterface
 
     /**
      * Constructor
-     *
-     * @param array $attributes
      */
     public function __construct(array $attributes = [])
     {
@@ -31,7 +29,6 @@ class GenericParameter implements ParameterInterface
     /**
      * Sets a single attribute
      *
-     * @param string $key
      * @param mixed $value
      * @return static
      */
@@ -61,7 +58,6 @@ class GenericParameter implements ParameterInterface
     /**
      * Sets a single attribute
      *
-     * @param string $key
      * @param mixed $value
      */
     protected function setAttributeRaw(string $key, $value): void
@@ -94,8 +90,6 @@ class GenericParameter implements ParameterInterface
      * Prepare date time string
      *
      * @param string|\DateTimeInterface $dateTime
-     * @param string $format
-     * @return string
      */
     protected function stringifyDateTime($dateTime, string $format = 'Y-m-d H:i:s'): string
     {

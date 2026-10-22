@@ -19,16 +19,11 @@ abstract class AbstractService implements ServiceInterface
 
     /**
      * Returns the resources URI path
-     *
-     * @return string
      */
     abstract protected function getResourcePath(): string;
 
     /**
      * Constructor
-     *
-     * @param HttpClientInterface $client
-     * @param ResponseFactory $responseFactory
      */
     public function __construct(HttpClientInterface $client, ResponseFactory $responseFactory)
     {
@@ -40,7 +35,6 @@ abstract class AbstractService implements ServiceInterface
      * Retrieve a single resource
      *
      * @param int|string $id
-     * @return ResponseInterface
      *
      * @throws ApiException
      */
@@ -51,9 +45,6 @@ abstract class AbstractService implements ServiceInterface
 
     /**
      * Query for a collection of resources
-     *
-     * @param array $filter
-     * @return ResponseInterface
      *
      * @throws ApiException
      */
@@ -66,7 +57,6 @@ abstract class AbstractService implements ServiceInterface
      * Delete a resource
      *
      * @param int|string $id
-     * @return ResponseInterface
      *
      * @throws ApiException
      */

@@ -22,10 +22,6 @@ class TrxEmailService extends AbstractService
 
     /**
      * Constructor
-     *
-     * @param HttpClientInterface $client
-     * @param ResponseFactory $responseFactory
-     * @param ParameterFactory $parameterFactory
      */
     public function __construct(
         HttpClientInterface $client,
@@ -36,9 +32,6 @@ class TrxEmailService extends AbstractService
         parent::__construct($client, $responseFactory);
     }
 
-    /**
-     * @return ParameterFactory
-     */
     public function params(): ParameterFactory
     {
         return $this->parameterFactory;
@@ -56,7 +49,6 @@ class TrxEmailService extends AbstractService
      * Get list of transaction emails
      *
      * @param array|TrxEmailQueryParam $filter
-     * @return HalResponseResourceIterator
      * @throws ApiException
      */
     public function query($filter = []): HalResponseResourceIterator
@@ -87,8 +79,6 @@ class TrxEmailService extends AbstractService
     /**
      * Get info about a single transaction email
      *
-     * @param string $hash
-     * @return HalResponse
      * @throws ApiException
      */
     public function get(string $hash): HalResponse

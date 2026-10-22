@@ -16,7 +16,6 @@ interface HttpClientInterface
      * @param string|UriInterface $uri URI object or string.
      * @param array $options Request options to apply.
      *
-     * @return ResponseInterface
      * @throws ApiException
      */
     public function request(string $method, $uri, array $options = []): ResponseInterface;

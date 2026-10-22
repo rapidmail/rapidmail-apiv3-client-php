@@ -75,8 +75,6 @@ class Client
     /**
      * Creates a new mailing service
      *
-     * @param string|null $version
-     * @return MailingService
      * @throws NotImplementedException
      */
     public function mailings(?string $version = null): MailingService
@@ -87,8 +85,6 @@ class Client
     /**
      * Creates a new mailing recipients service
      *
-     * @param string|null $version
-     * @return MailingRecipientsService
      * @throws NotImplementedException
      */
     public function mailingRecipients(?string $version = null): MailingRecipientsService
@@ -99,8 +95,6 @@ class Client
     /**
      * Creates a new mailing folders service
      *
-     * @param string|null $version
-     * @return MailingFoldersService
      * @throws NotImplementedException
      */
     public function mailingFolders(?string $version = null): MailingFoldersService
@@ -111,8 +105,6 @@ class Client
     /**
      * Creates a new mailing stats service
      *
-     * @param string|null $version
-     * @return MailingStatsService
      * @throws NotImplementedException
      */
     public function mailingStats(?string $version = null): MailingStatsService
@@ -123,8 +115,6 @@ class Client
     /**
      * Creates a new mailing stats anonymize service
      *
-     * @param string|null $version
-     * @return MailingStatsAnonymizeService
      * @throws NotImplementedException
      */
     public function mailingStatsAnonymize(?string $version = null): MailingStatsAnonymizeService
@@ -135,8 +125,6 @@ class Client
     /**
      * Creates a new API service to manage recipientlists
      *
-     * @param string|null $version
-     * @return RecipientlistService
      * @throws NotImplementedException
      */
     public function recipientlists(?string $version = null): RecipientlistService
@@ -147,8 +135,6 @@ class Client
     /**
      * Creates a new API service to manage recipients
      *
-     * @param string|null $version
-     * @return RecipientService
      * @throws NotImplementedException
      */
     public function recipients(?string $version = null): RecipientService
@@ -159,8 +145,6 @@ class Client
     /**
      * Creates a new API service to manage jobs
      *
-     * @param string|null $version
-     * @return JobService
      * @throws NotImplementedException
      */
     public function jobs(?string $version = null): JobService
@@ -171,8 +155,6 @@ class Client
     /**
      * Creates a new API service to fetch transactional emails
      *
-     * @param string|null $version
-     * @return TrxEmailService
      * @throws NotImplementedException
      */
     public function transactionEmails(?string $version = null): TrxEmailService
@@ -183,8 +165,6 @@ class Client
     /**
      * Creates a new API service to manage API users
      *
-     * @param string|null $version
-     * @return ApiUserService
      * @throws NotImplementedException
      */
     public function apiUsers(?string $version = null): ApiUserService
@@ -195,8 +175,6 @@ class Client
     /**
      * Creates a new API service to manage blacklist entries
      *
-     * @param string|null $version
-     * @return BlacklistService
      * @throws NotImplementedException
      */
     public function blacklist(?string $version = null): BlacklistService

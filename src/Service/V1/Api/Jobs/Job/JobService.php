@@ -23,8 +23,6 @@ class JobService extends AbstractService
     /**
      * Get details about a specific job
      *
-     * @param int $jobId
-     * @return HalResponse
      * @throws ApiException
      */
     public function get(int $jobId): HalResponse

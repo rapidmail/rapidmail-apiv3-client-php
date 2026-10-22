@@ -11,9 +11,6 @@ class HttpClientFactory
 
     /**
      * Create new ClientInterface instances
-     *
-     * @param array $config
-     * @return HttpClientInterface
      */
     public function createClient(array $config = []): HttpClientInterface
     {
@@ -48,9 +45,6 @@ class HttpClientFactory
 
     }
 
-    /**
-     * @return string
-     */
     private function buildUserAgentString(): string
     {
 

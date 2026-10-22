@@ -24,10 +24,6 @@ class RecipientlistService extends AbstractService
 
     /**
      * Constructor
-     *
-     * @param HttpClientInterface $client
-     * @param ResponseFactory $responseFactory
-     * @param ParameterFactory $parameterFactory
      */
     public function __construct(
         HttpClientInterface $client,
@@ -46,9 +42,6 @@ class RecipientlistService extends AbstractService
         return 'recipientlists';
     }
 
-    /**
-     * @return ParameterFactory
-     */
     public function params(): ParameterFactory
     {
         return $this->parameterFactory;
@@ -57,8 +50,6 @@ class RecipientlistService extends AbstractService
     /**
      * Get a list of recipientlists from current account
      *
-     * @param array $filter
-     * @return HalResponseResourceIterator
      * @throws ApiException
      */
     public function query(array $filter = []): HalResponseResourceIterator
@@ -80,7 +71,6 @@ class RecipientlistService extends AbstractService
      * Create a new recipientlist
      *
      * @param string|array|RecipientlistCreateParam
-     * @return HalResponse
      * @throws ApiException
      */
     public function create($data = []): HalResponse
@@ -96,8 +86,6 @@ class RecipientlistService extends AbstractService
     /**
      * Get details for a specific recipientlist
      *
-     * @param int $recipientlistId
-     * @return HalResponse
      * @throws ApiException
      */
     public function get(int $recipientlistId): HalResponse
@@ -115,8 +103,6 @@ class RecipientlistService extends AbstractService
     /**
      * Delete recipientlist specified by ID
      *
-     * @param int $recipientlistId
-     * @return bool
      * @throws ApiException
      */
     public function delete(int $recipientlistId): bool
@@ -127,9 +113,7 @@ class RecipientlistService extends AbstractService
     /**
      * Update a specific recipientlist allowing partial updates
      *
-     * @param int $recipientlistId
      * @param string|array|RecipientlistCreateParam $data
-     * @return HalResponse
      * @throws ApiException
      */
     public function update(int $recipientlistId, $data = []): HalResponse
@@ -145,9 +129,7 @@ class RecipientlistService extends AbstractService
     /**
      * Get activity stats for a specific recipientlist
      *
-     * @param int $recipientlistId
      * @param array|RecipientlistActivityStatsParam $filter
-     * @return HalResponse
      * @throws ApiException
      */
     public function activityStats(int $recipientlistId, $filter = []): HalResponse
@@ -184,10 +166,7 @@ class RecipientlistService extends AbstractService
     /**
      * Creates or updates a recipientlist
      *
-     * @param string $method
-     * @param string $uri
      * @param array|RecipientlistCreateParam $data
-     * @return HalResponse
      * @throws ApiException
      */
     private function upsert(string $method, string $uri, $data = []): HalResponse

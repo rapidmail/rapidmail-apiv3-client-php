@@ -13,8 +13,6 @@ class HalResponsePaginationIterator implements ResponseInterface, \Iterator, \Co
 
     /**
      * Constructor
-     *
-     * @param HalResponse $response
      */
     public function __construct(HalResponse $response)
     {
@@ -71,17 +69,11 @@ class HalResponsePaginationIterator implements ResponseInterface, \Iterator, \Co
         return $this->current['page_count'];
     }
 
-    /**
-     * @return int
-     */
     public function totalCount(): int
     {
         return $this->current['total_items'];
     }
 
-    /**
-     * @return array
-     */
     protected function toArray(): array
     {
 

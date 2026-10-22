@@ -19,15 +19,11 @@ class ThrottleMiddleware
 
     /**
      * Interval in seconds
-     *
-     * @var float
      */
     private float $interval;
 
     /**
      * Number of requests per interval
-     *
-     * @var int
      */
     private int $requestsPerInterval;
 
@@ -40,7 +36,6 @@ class ThrottleMiddleware
      * Constructor
      *
      * @param float $interval Interval in seconds
-     * @param int $requestsPerInterval
      */
     private function __construct(float $interval, int $requestsPerInterval)
     {
@@ -53,7 +48,6 @@ class ThrottleMiddleware
      * Get a global instance
      *
      * @param float $interval Interval in seconds
-     * @param int $requestsPerInterval
      * @return static
      */
     public static function getInstance(float $interval, int $requestsPerInterval): self
@@ -68,9 +62,6 @@ class ThrottleMiddleware
 
     /**
      * Create the throttle middleware
-     *
-     * @param callable $handler
-     * @return callable
      */
     public function __invoke(callable $handler): callable
     {

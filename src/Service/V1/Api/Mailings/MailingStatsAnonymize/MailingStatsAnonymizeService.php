@@ -24,8 +24,6 @@ class MailingStatsAnonymizeService extends AbstractService
      *
      * This operation is only supported, if the respective mailing has already been sent.
      *
-     * @param int $mailingId
-     * @return bool
      * @throws ApiException
      */
     public function anonymize(int $mailingId): bool

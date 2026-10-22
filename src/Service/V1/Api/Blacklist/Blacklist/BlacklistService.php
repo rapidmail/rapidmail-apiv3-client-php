@@ -25,10 +25,6 @@ class BlacklistService extends AbstractService
 
     /**
      * Constructor
-     *
-     * @param HttpClientInterface $client
-     * @param ResponseFactory $responseFactory
-     * @param ParameterFactory $parameterFactory
      */
     public function __construct(
         HttpClientInterface $client,
@@ -47,9 +43,6 @@ class BlacklistService extends AbstractService
         return 'blacklist';
     }
 
-    /**
-     * @return ParameterFactory
-     */
     public function params(): ParameterFactory
     {
         return $this->parameterFactory;
@@ -59,7 +52,6 @@ class BlacklistService extends AbstractService
      * Get list of blacklist entries
      *
      * @param array|BlacklistQueryParam $filter
-     * @return HalResponseResourceIterator
      *
      * @throws ApiException
      */
@@ -92,7 +84,6 @@ class BlacklistService extends AbstractService
      * Create a new blacklist entry
      *
      * @param string|array|BlacklistCreateParam $data
-     * @return HalResponse
      * @throws ApiException
      */
     public function create($data = []): HalResponse
@@ -134,9 +125,6 @@ class BlacklistService extends AbstractService
     /**
      * Get info about a single blacklist entry
      *
-     * @param int $blacklistId
-     * @return HalResponse
-     *
      * @throws ApiException
      */
     public function get(int $blacklistId): HalResponse
@@ -152,8 +140,6 @@ class BlacklistService extends AbstractService
     /**
      * Delete blacklist entry by ID
      *
-     * @param int $blacklistId
-     * @return bool
      * @throws ApiException
      */
     public function delete(int $blacklistId): bool
@@ -168,7 +154,6 @@ class BlacklistService extends AbstractService
      * Additional fields cannot be imported. A header line is not supported.
      *
      * @param string|\SplFileInfo|array|BlacklistImportParam $data
-     * @return HalResponse
      * @throws ApiException
      */
     public function import($data = []): HalResponse

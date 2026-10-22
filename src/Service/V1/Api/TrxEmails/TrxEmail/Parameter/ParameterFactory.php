@@ -7,9 +7,6 @@ class ParameterFactory
 
     /**
      * Creates a new transaction emails query parameter
-     *
-     * @param array $input
-     * @return TrxEmailQueryParam
      */
     public function newQueryParam(array $input = []): TrxEmailQueryParam
     {

@@ -12,9 +12,6 @@ class RecipientImportParam extends GenericParameter
 
     /**
      * Constructor
-     *
-     * @param ParameterFactory $parameterFactory
-     * @param array $attributes
      */
     public function __construct(ParameterFactory $parameterFactory, array $attributes = [])
     {

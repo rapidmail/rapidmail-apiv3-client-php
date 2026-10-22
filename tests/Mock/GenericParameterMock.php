@@ -19,8 +19,6 @@ class GenericParameterMock extends GenericParameter
 
     /**
      * Returns the KnownAttributeKeys
-     *
-     * @return array
      */
     public function getKnownAttributeKeys(): array
     {

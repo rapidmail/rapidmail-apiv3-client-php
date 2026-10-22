@@ -24,10 +24,6 @@ class ApiUserService extends AbstractService
 
     /**
      * Constructor
-     *
-     * @param HttpClientInterface $client
-     * @param ResponseFactory $responseFactory
-     * @param ParameterFactory $parameterFactory
      */
     public function __construct(
         HttpClientInterface $client,
@@ -38,9 +34,6 @@ class ApiUserService extends AbstractService
         parent::__construct($client, $responseFactory);
     }
 
-    /**
-     * @return ParameterFactory
-     */
     public function params(): ParameterFactory
     {
         return $this->parameterFactory;
@@ -58,7 +51,6 @@ class ApiUserService extends AbstractService
      * Get a list of API users
      *
      * @param array|ApiUserQueryParam $filter
-     * @return HalResponseResourceIterator
      * @throws ApiException
      */
     public function query($filter = []): HalResponseResourceIterator
@@ -85,8 +77,6 @@ class ApiUserService extends AbstractService
     /**
      * Get details about an API user
      *
-     * @param int $apiUserId
-     * @return HalResponse
      * @throws ApiException
      */
     public function get(int $apiUserId): HalResponse
@@ -102,9 +92,6 @@ class ApiUserService extends AbstractService
     /**
      * Delete a single API user
      *
-     * @param int $apiUserId
-     * @return bool
-     *
      * @throws ApiException
      */
     public function delete(int $apiUserId): bool
@@ -115,10 +102,7 @@ class ApiUserService extends AbstractService
     /**
      * Creates or updates an API user
      *
-     * @param string $method
-     * @param string $uri
      * @param array|ApiUserCreateParam $data
-     * @return HalResponse
      * @throws ApiException
      */
     private function upsert(string $method, string $uri, $data): HalResponse
@@ -154,7 +138,6 @@ class ApiUserService extends AbstractService
      * Username and password will be created automatically.
      *
      * @param array|ApiUserCreateParam $data
-     * @return HalResponse
      * @throws ApiException
      */
     public function create($data = []): HalResponse
@@ -171,9 +154,7 @@ class ApiUserService extends AbstractService
     /**
      * Partially update an API user
      *
-     * @param int $apiUserId
      * @param array|ApiUserCreateParam $data
-     * @return HalResponse
      * @throws ApiException
      */
     public function update(int $apiUserId, $data = []): HalResponse

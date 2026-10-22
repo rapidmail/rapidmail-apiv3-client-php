@@ -24,10 +24,6 @@ class MailingService extends AbstractService
 
     /**
      * Constructor
-     *
-     * @param HttpClientInterface $client
-     * @param ResponseFactory $responseFactory
-     * @param ParameterFactory $parameterFactory
      */
     public function __construct(
         HttpClientInterface $client,
@@ -46,9 +42,6 @@ class MailingService extends AbstractService
         return 'mailings';
     }
 
-    /**
-     * @return ParameterFactory
-     */
     public function params(): ParameterFactory
     {
         return $this->parameterFactory;
@@ -56,9 +49,6 @@ class MailingService extends AbstractService
 
     /**
      * Get detailed info about single mailing
-     *
-     * @param int $mailingId
-     * @return HalResponse
      *
      * @throws ApiException
      */
@@ -76,7 +66,6 @@ class MailingService extends AbstractService
      * List all mailings
      *
      * @param MailingQueryParam|array $filter
-     * @return HalResponseResourceIterator
      *
      * @throws ApiException
      */
@@ -108,9 +97,6 @@ class MailingService extends AbstractService
     /**
      * Delete a single mailing
      *
-     * @param int $mailingId
-     * @return bool
-     *
      * @throws ApiException
      */
     public function delete(int $mailingId): bool
@@ -120,9 +106,6 @@ class MailingService extends AbstractService
 
     /**
      * Pause a mailing
-     *
-     * @param int $mailingId
-     * @return bool
      *
      * @throws ApiException
      */
@@ -139,10 +122,6 @@ class MailingService extends AbstractService
 
     /**
      * Cancel a mailing
-     *
-     * @param int $mailingId
-     * @param string $reason
-     * @return bool
      *
      * @throws ApiException
      */
@@ -167,7 +146,6 @@ class MailingService extends AbstractService
      * Create a new mailing using zip file content
      *
      * @param array|MailingCreateParam $data
-     * @return HalResponse
      * @throws ApiException
      */
     public function create($data = []): HalResponse

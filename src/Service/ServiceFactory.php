@@ -16,9 +16,6 @@ class ServiceFactory
 
     /**
      * Constructor
-     *
-     * @param HttpClientFactory $httpClientFactory
-     * @param array $config
      */
     public function __construct(HttpClientFactory $httpClientFactory, array $config = [])
     {
@@ -26,9 +23,6 @@ class ServiceFactory
         $this->userConfig = $config;
     }
 
-    /**
-     * @return array
-     */
     private function getGlobalConfig(): array
     {
         return require __DIR__ . '/../Config/services.php';
@@ -37,9 +31,6 @@ class ServiceFactory
     /**
      * Create a specific API service
      *
-     * @param string $service
-     * @param string|null $version
-     * @return ServiceInterface
      * @throws NotImplementedException
      */
     public function createService(string $service, ?string $version = null): ServiceInterface

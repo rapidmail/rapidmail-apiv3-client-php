@@ -24,9 +24,6 @@ class MailingRecipientsService extends AbstractService
     /**
      * Get details about specific mailing recipient
      *
-     * @param int $mailingId
-     * @param int $mailingRecipientId
-     * @return HalResponse
      * @throws ApiException
      */
     public function get(int $mailingId, int $mailingRecipientId): HalResponse
@@ -46,8 +43,6 @@ class MailingRecipientsService extends AbstractService
     /**
      * Get recipients for mailing
      *
-     * @param int $mailingId
-     * @return HalResponseResourceIterator
      * @throws ApiException
      */
     public function query(int $mailingId): HalResponseResourceIterator

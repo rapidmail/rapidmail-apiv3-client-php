@@ -14,8 +14,6 @@ class HttpClientFacade implements HttpClientInterface
 
     /**
      * Constructor
-     *
-     * @param ClientInterface $client
      */
     public function __construct(ClientInterface $client)
     {

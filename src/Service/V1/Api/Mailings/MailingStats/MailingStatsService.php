@@ -23,8 +23,6 @@ class MailingStatsService extends AbstractService
     /**
      * Get stats for specific mailing
      *
-     * @param int $mailingId
-     * @return HalResponse
      * @throws ApiException
      */
     public function get(int $mailingId): HalResponse

@@ -28,10 +28,6 @@ class RecipientService extends AbstractService
 
     /**
      * Constructor
-     *
-     * @param HttpClientInterface $client
-     * @param ResponseFactory $responseFactory
-     * @param ParameterFactory $parameterFactory
      */
     public function __construct(
         HttpClientInterface $client,
@@ -50,9 +46,6 @@ class RecipientService extends AbstractService
         return 'recipients';
     }
 
-    /**
-     * @return ParameterFactory
-     */
     public function params(): ParameterFactory
     {
         return $this->parameterFactory;
@@ -60,9 +53,6 @@ class RecipientService extends AbstractService
 
     /**
      * Load a single recipient by ID
-     *
-     * @param int $recipientId
-     * @return HalResponse
      *
      * @throws ApiException
      */
@@ -80,7 +70,6 @@ class RecipientService extends AbstractService
      * List all recipients
      *
      * @param int|array|RecipientQueryParam $filter
-     * @return HalResponseResourceIterator
      *
      * @throws ApiException
      */
@@ -122,7 +111,6 @@ class RecipientService extends AbstractService
      *
      * @param array|RecipientCreateParam $data
      * @param array|RecipientCreateQueryParam $query Optional: Modify create behavior
-     * @return HalResponse
      * @throws ApiException
      */
     public function create($data = [], $query = []): HalResponse
@@ -138,9 +126,7 @@ class RecipientService extends AbstractService
     /**
      * Update a specific recipient allowing partial updates
      *
-     * @param int $recipientId
      * @param string|array|RecipientCreateParam $data
-     * @return HalResponse
      * @throws ApiException
      */
     public function update(int $recipientId, $data = []): HalResponse
@@ -159,9 +145,7 @@ class RecipientService extends AbstractService
      * Please note that a recipient is only soft-deleted and marked as deleted
      * when calling this to mimic unsubscribe behavior.
      *
-     * @param int $recipientId
      * @param array|RecipientDeleteQueryParam
-     * @return bool
      * @throws ApiException
      */
     public function delete(int $recipientId, $query = []): bool
@@ -195,11 +179,8 @@ class RecipientService extends AbstractService
     /**
      * Creates or updates a recipient
      *
-     * @param string $method
-     * @param string $uri
      * @param array|RecipientCreateParam $data
      * @param array|RecipientCreateQueryParam $query
-     * @return HalResponse
      * @throws ApiException
      */
     private function upsert(string $method, string $uri, $data, $query): HalResponse
@@ -250,7 +231,6 @@ class RecipientService extends AbstractService
      *
      * @param array|RecipientImportParam $data
      * @param array|RecipientImportQueryParam $query
-     * @return HalResponse
      * @throws ApiException
      */
     public function import($data = [], $query = []): HalResponse

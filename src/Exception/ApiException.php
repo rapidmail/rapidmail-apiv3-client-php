@@ -11,9 +11,6 @@ class ApiException extends \Exception implements ApiClientException
 
     /**
      * Convert a Guzzle exception into an API exception
-     *
-     * @param GuzzleException $e
-     * @return self
      */
     public static function fromGuzzleException(GuzzleException $e): self
     {

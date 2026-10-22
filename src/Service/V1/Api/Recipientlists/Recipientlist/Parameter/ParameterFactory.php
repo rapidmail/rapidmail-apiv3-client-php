@@ -10,9 +10,6 @@ class ParameterFactory
 
     /**
      * Creates a new recipientlists create parameter
-     *
-     * @param array $input
-     * @return RecipientlistCreateParam
      */
     public function newCreateParam(array $input = []): RecipientlistCreateParam
     {
@@ -21,9 +18,6 @@ class ParameterFactory
 
     /**
      * Creates a new recipientlists activity stats parameter
-     *
-     * @param array $input
-     * @return RecipientlistActivityStatsParam
      */
     public function newActivityStatsParam(array $input = []): RecipientlistActivityStatsParam
     {

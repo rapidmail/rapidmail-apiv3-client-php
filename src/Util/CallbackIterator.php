@@ -11,9 +11,6 @@ class CallbackIterator implements \Iterator
 
     /**
      * Constructor
-     *
-     * @param \Iterator $iterator
-     * @param \Closure $callback
      */
     public function __construct(\Iterator $iterator, \Closure $callback)
     {

@@ -7,9 +7,6 @@ class ParameterFactory
 
     /**
      * Creates a new query parameter
-     *
-     * @param array $input
-     * @return BlacklistQueryParam
      */
     public function newQueryParam(array $input = []): BlacklistQueryParam
     {
@@ -18,9 +15,6 @@ class ParameterFactory
 
     /**
      * Creates a new create parameter
-     *
-     * @param array $input
-     * @return BlacklistCreateParam
      */
     public function newCreateParam(array $input = []): BlacklistCreateParam
     {
@@ -28,9 +22,6 @@ class ParameterFactory
     }
     /**
      * Creates a new import query parameter
-     *
-     * @param array $input
-     * @return BlacklistImportParam
      */
     public function newImportParam(array $input = []): BlacklistImportParam
     {
@@ -39,9 +30,6 @@ class ParameterFactory
 
     /**
      * Creates a new import parameter file attribute
-     *
-     * @param array $input
-     * @return BlacklistImportParamFileAttr
      */
     public function newImportParamFileAttr(array $input = []): BlacklistImportParamFileAttr
     {

@@ -20,7 +20,6 @@ class MailingFoldersService extends AbstractService
     /**
      * Fetch all mailing folders as array
      *
-     * @return array
      * @throws ApiException
      */
     public function fetchAll(): array
@@ -47,7 +46,6 @@ class MailingFoldersService extends AbstractService
     /**
      * Create a new folder
      *
-     * @param string $folderName
      * @return stdClass
      * @throws ApiException
      */
@@ -75,7 +73,6 @@ class MailingFoldersService extends AbstractService
     /**
      * Delete an existing folder
      *
-     * @param int $folderId
      * @throws ApiException
      */
     public function delete(int $folderId): void
@@ -89,8 +86,6 @@ class MailingFoldersService extends AbstractService
     /**
      * Rename an existing folder
      *
-     * @param int $folderId
-     * @param string $newFolderName
      * @return stdClass
      * @throws ApiException
      */
@@ -118,8 +113,6 @@ class MailingFoldersService extends AbstractService
     /**
      * Assign mailing to a folder
      *
-     * @param int $mailingId
-     * @param int|null $folderId
      * @return stdClass
      * @throws ApiException
      */
@@ -147,7 +140,6 @@ class MailingFoldersService extends AbstractService
     /**
      * Remove folder assignment of mailing
      *
-     * @param int $mailingId
      * @return stdClass
      * @throws ApiException
      */
